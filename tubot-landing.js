@@ -301,7 +301,7 @@
     setTimeout(() => { measure(); update(); }, 600);
   })();
 
-  /* ---------- Tracking: evento click_whatsapp (dataLayer + gtag) ---------- */
+  /* ---------- Tracking: evento click_whatsapp (dataLayer + gtag + Bing UET) ---------- */
   (function () {
     function ctaLocation(a) {
       if (a.getAttribute('data-cta')) return a.getAttribute('data-cta');
@@ -322,6 +322,8 @@
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'click_whatsapp', { cta_location: loc, transport_type: 'beacon' });
       }
+      window.uetq = window.uetq || [];
+      window.uetq.push('event', 'click_whatsapp', { event_category: 'cta', event_label: loc });
     }, true);
   })();
 
@@ -335,6 +337,8 @@
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'calendly_booked', { transport_type: 'beacon' });
       }
+      window.uetq = window.uetq || [];
+      window.uetq.push('event', 'calendly_booked', { event_category: 'cta' });
     });
   })();
 
