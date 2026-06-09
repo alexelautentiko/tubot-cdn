@@ -49,6 +49,17 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* En Webflow, el stylesheet del template (tubot.webflow.css) estiliza h1-h6/p/a/etc.
+   con color, margen y la fuente Ubuntu directamente sobre el tag, y eso le gana a la
+   herencia del body y al reset universal (* tiene especificidad 0). Esta hoja carga
+   despues, asi que con la misma especificidad de tag restauramos lo que el diseño asume. */
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, blockquote, figcaption, summary, strong, em {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+}
+
 html { scroll-behavior: smooth; }
 
 body {
