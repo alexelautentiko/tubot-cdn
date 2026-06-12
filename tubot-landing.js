@@ -400,14 +400,26 @@
         const v = t('wa.' + a.getAttribute('data-i18n-wa'));
         if (v !== null) a.href = 'https://wa.me/15755301374?text=' + encodeURIComponent(v);
       });
-      // 4) JSON-LD: Google indexa el schema del DOM renderizado
-      const ld = Array.prototype.find.call(
-        document.querySelectorAll('script[type="application/ld+json"]'),
-        s => s.textContent.indexOf('tubot.es/#organization') !== -1
-      );
-      if (ld) {
-        try {
-          const g = JSON.parse(ld.textContent);
+    }
+    // 4) JSON-LD: Google indexa el schema del DOM renderizado. Se parsea SIEMPRE
+    // (también en ES): el campo de custom code de Webflow puede envolver líneas
+    // dentro de un string, y un salto de línea literal hace el JSON inválido —
+    // aquí se sanea y se reescribe limpio; en EN/CA además se traduce.
+    const ld = Array.prototype.find.call(
+      document.querySelectorAll('script[type="application/ld+json"]'),
+      s => s.textContent.indexOf('tubot.es/#organization') !== -1
+    );
+    if (ld) {
+      try {
+        let g, dirty = false;
+        try { g = JSON.parse(ld.textContent); }
+        catch (e1) {
+          // sanea caracteres de control literales (el campo de Webflow puede envolver lineas dentro de strings)
+          var src = ld.textContent, clean = '';
+          for (var ci = 0; ci < src.length; ci++) { clean += src.charCodeAt(ci) < 32 ? ' ' : src.charAt(ci); }
+          g = JSON.parse(clean); dirty = true;
+        }
+        if (LANG !== 'es') {
           (g['@graph'] || []).forEach(node => {
             if (node['@type'] === 'Organization') node.description = t('seo.orgDesc') || node.description;
             if (node['@type'] === 'Service') {
@@ -430,9 +442,9 @@
               });
             }
           });
-          ld.textContent = JSON.stringify(g);
-        } catch (e) {}
-      }
+        }
+        if (LANG !== 'es' || dirty) ld.textContent = JSON.stringify(g);
+      } catch (e) {}
     }
     // switcher: marcar idioma activo (también en ES); en file:// enlazar vía ?lang= para testing
     document.querySelectorAll('.lang-switch a').forEach(a => {
