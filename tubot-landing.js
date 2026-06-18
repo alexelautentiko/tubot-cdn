@@ -27,37 +27,40 @@
       "hdr.cta": "Audit on WhatsApp",
       "hero.eyebrow": "AI FOR WHATSAPP BUSINESS",
       "hero.h1pre": "Your WhatsApp",
-      "hero.words": "takes orders|sends quotes|books visits|manages bookings|captures leads|collects documents|answers questions",
+      "hero.words": "takes orders|sends quotes|books visits|manages bookings|captures leads|collects documents|answers questions|reminds about appointments|chases payments|flags renewals",
       "hero.word1": "takes orders",
       "hero.sub": "It answers, qualifies and resolves 24/7. Without anyone glued to the phone.",
       "hero.cta": "Request your free consultation",
-      "hero.micro1": "Our own AI replies in seconds",
+      "hero.micro1": "Our AI replies",
       "hero.micro2": "Free consultation",
       "hero.micro3": "No commitment",
       "hero.status": "online",
       "trust.label": "POWERED BY THE BEST AI",
       "proc.eyebrow": "<span class=\"dot\"></span>Processes, not bots",
       "proc.title": "We don't install a bot. <span class=\"grad-text\">We take a process off your plate.</span>",
-      "proc.g1": "Sales",
       "proc.c1h": "Captures and qualifies leads 24/7",
       "proc.c1p": "Answered instantly, qualified and with the appointment booked, even in the middle of the night.",
       "proc.c2h": "Instant quotes",
       "proc.c2p": "From a photo or a few details, it returns a ballpark quote on the spot and books the visit.",
       "proc.c3h": "Bookings and orders",
       "proc.c3p": "Takes the booking or the order at any hour, with no one watching the phone.",
-      "proc.g2": "Support",
       "proc.c4h": "Repetitive FAQs",
       "proc.c4p": "Resolved on the spot, with your information and your tone.",
-      "proc.c5h": "Case status",
+      "proc.c5h": "Order status",
       "proc.c5p": "Orders, repairs or paperwork, checkable 24/7 without picking up the phone.",
       "proc.c6h": "Document collection",
       "proc.c6p": "Requests and receives data, photos and PDFs in a guided flow, complete and right first time.",
-      "proc.g3": "Team",
-      "proc.c7h": "Internal team",
-      "proc.c7p": "Internal FAQs, work orders, onboarding and L1 helpdesk, resolved on their own.",
       "proc.cta": "Start with my process",
-      "io.eyebrow": "<span class=\"dot\"></span>It understands everything they send",
-      "io.title": "Text, voice or photo. <span class=\"grad-text\">Straight into your CRM, calendar or ERP.</span>",
+      "proc.dir1": "When they write to you",
+      "proc.dir2": "When you write first",
+      "proc.c8h": "Appointment reminders & confirmation",
+      "proc.c8p": "Reminds 24 h ahead, confirms attendance and reschedules on its own. Fewer empty slots, chasing no one.",
+      "proc.c9h": "Payments & invoices",
+      "proc.c9p": "Reminds about the pending payment with a link to pay, and tells you when it lands. No awkward calls.",
+      "proc.c10h": "Renewals & alerts",
+      "proc.c10p": "Warns before the insurance, appointment or maintenance is due. And re-engages whoever hasn't been back in a while.",
+      "io.eyebrow": "<span class=\"dot\"></span>Connected to your systems",
+      "io.title": "Every conversation, <span class=\"grad-text\">in sync with your CRM, calendar and ERP.</span>",
       "io.tab1": "Text",
       "io.tab2": "Audio",
       "io.tab3": "Image",
@@ -88,6 +91,35 @@
       "io.p3.k3": "Service", "io.p3.v3": "Removal · €90–140",
       "io.p3.k4": "Visit", "io.p3.v4": "Proposed this week",
       "io.p3.dest": "Quote sent and visit booked",
+      "io.inLabel": "From the customer to your business",
+      "io.outLabel": "From your business to the customer",
+      "a11y.tablistOut": "Outbound case",
+      "io.outTab1": "Reminder",
+      "io.outTab2": "Payment",
+      "io.outTab3": "Renewal",
+      "io.waClient": "WhatsApp · Customer",
+      "io.tplPill": "Approved template",
+      "io.o1.sys": "Your system · Calendar",
+      "io.o1.k1": "Appointment", "io.o1.v1": "Tomorrow · 10:00",
+      "io.o1.k2": "Customer",
+      "io.o1.k3": "Service", "io.o1.v3": "Dental cleaning",
+      "io.o1.k4": "Status", "io.o1.v4": "Unconfirmed",
+      "io.o1.msg": "Hi Marta 👋 A reminder of your appointment tomorrow at 10:00 (dental cleaning). Can you confirm? Reply YES, or NO and I'll reschedule it.<span class=\"time\">09:00<span class=\"tick\">✓✓</span></span>",
+      "io.o1.dest": "Confirmed — slot secured",
+      "io.o2.sys": "Your system · Billing",
+      "io.o2.k1": "Invoice",
+      "io.o2.k2": "Amount",
+      "io.o2.k3": "Status", "io.o2.v3": "Overdue by 3 days",
+      "io.o2.k4": "Customer",
+      "io.o2.msg": "Hi, invoice #1042 for €148 is still pending. You can pay it in 1 minute here: pay.tubot.es/1042 Thanks!<span class=\"time\">12:30<span class=\"tick\">✓✓</span></span>",
+      "io.o2.dest": "Payment received and reconciled",
+      "io.o3.sys": "Your system · CRM",
+      "io.o3.k1": "Policy", "io.o3.v1": "Home",
+      "io.o3.k2": "Expires", "io.o3.v2": "in 7 days",
+      "io.o3.k3": "Customer",
+      "io.o3.k4": "Status", "io.o3.v4": "Not renewed",
+      "io.o3.msg": "Hi Luis, your home insurance expires on the 25th. Shall we renew it on the same terms? Reply YES and I'll take care of everything.<span class=\"time\">17:45<span class=\"tick\">✓✓</span></span>",
+      "io.o3.dest": "Renewal confirmed",
       "stats.l1": "Response time",
       "stats.l2": "Always-on support",
       "stats.n3": "+8,000",
@@ -193,8 +225,8 @@
       "seo.orgDesc": "Tubot is a Spanish company that builds, deploys and operates AI-powered WhatsApp Business bots for companies. Its bots handle customers, qualify leads, manage appointments, process documents, respond to voice notes and connect conversations with CRMs, ERPs and internal tools.",
       "seo.svcName": "AI-powered WhatsApp Business bots for companies",
       "seo.svcType": "WhatsApp Business automation with artificial intelligence",
-      "seo.svcDesc": "Tubot builds WhatsApp Business bots trained for each business, connected to its systems and operated continuously. The service includes deployment, integrations, maintenance, support and continuous improvement.",
-      "seo.svcAud": "Companies that receive customers, leads, bookings, documents or support requests via WhatsApp"
+      "seo.svcDesc": "Tubot builds WhatsApp Business bots trained for each business, connected to its systems and operated continuously. They both handle inbound messages and proactively reach out — appointment reminders, payment and renewal notices — with Meta-approved templates. The service includes deployment, integrations, maintenance, support and continuous improvement.",
+      "seo.svcAud": "Companies that receive — or proactively message — customers, leads, bookings, documents, payments or support via WhatsApp"
     },
     ca: {
       "a11y.lang": "Idioma",
@@ -203,37 +235,40 @@
       "hdr.cta": "Auditoria per WhatsApp",
       "hero.eyebrow": "IA PER A WHATSAPP BUSINESS",
       "hero.h1pre": "El teu WhatsApp",
-      "hero.words": "pren comandes|envia pressupostos|agenda visites|gestiona reserves|capta clients|recull documentació|respon dubtes",
+      "hero.words": "pren comandes|envia pressupostos|agenda visites|gestiona reserves|capta clients|recull documentació|respon dubtes|recorda cites|reclama cobraments|avisa de renovacions",
       "hero.word1": "pren comandes",
       "hero.sub": "Atén, qualifica i resol 24/7. Sense que ningú estigui pendent del mòbil.",
       "hero.cta": "Sol·licitar consultoria gratuïta",
-      "hero.micro1": "Et respon la nostra pròpia IA en segons",
+      "hero.micro1": "Et respon la nostra IA",
       "hero.micro2": "Consultoria gratis",
       "hero.micro3": "Sense compromís",
       "hero.status": "en línia",
       "trust.label": "POTENCIAT PER LA MILLOR IA",
       "proc.eyebrow": "<span class=\"dot\"></span>Processos, no bots",
       "proc.title": "No instal·lem un bot. <span class=\"grad-text\">Et traiem un procés de sobre.</span>",
-      "proc.g1": "Vendes",
       "proc.c1h": "Captura i qualifica leads 24/7",
       "proc.c1p": "Atesos a l'instant, qualificats i amb la cita agendada, també de matinada.",
       "proc.c2h": "Pressupostos a l'instant",
       "proc.c2p": "Amb una foto o quatre dades, retorna un pressupost orientatiu al moment i agenda la visita.",
       "proc.c3h": "Reserves i comandes",
       "proc.c3p": "Pren la reserva o la comanda a qualsevol hora, sense que ningú hi estigui pendent.",
-      "proc.g2": "Atenció",
       "proc.c4h": "FAQs repetitives",
       "proc.c4p": "Resoltes al moment, amb la teva informació i el teu to.",
-      "proc.c5h": "Estat d'un expedient",
+      "proc.c5h": "Estat d'una comanda",
       "proc.c5p": "Comanda, reparació o tràmit consultable 24/7, sense despenjar el telèfon.",
       "proc.c6h": "Recollida de documentació",
       "proc.c6p": "Demana i rep dades, fotos i PDFs de forma guiada, complets i a la primera.",
-      "proc.g3": "Equip",
-      "proc.c7h": "Equip intern",
-      "proc.c7p": "FAQs internes, comunicats, onboarding i helpdesk N1, resolts sols.",
       "proc.cta": "Començar pel meu procés",
-      "io.eyebrow": "<span class=\"dot\"></span>Entén tot el que li envien",
-      "io.title": "Text, àudio o foto. <span class=\"grad-text\">Directes al teu CRM, agenda o ERP.</span>",
+      "proc.dir1": "Quan t'escriuen",
+      "proc.dir2": "Quan escrius tu",
+      "proc.c8h": "Recordatoris i confirmació de cita",
+      "proc.c8p": "Avisa 24 h abans, confirma assistència i reprograma sol. Menys buits, sense perseguir ningú.",
+      "proc.c9h": "Cobraments i factures",
+      "proc.c9p": "Recorda el pagament pendent amb un enllaç per pagar, i t'avisa quan entra. Sense trucades incòmodes.",
+      "proc.c10h": "Renovacions i avisos",
+      "proc.c10p": "Avisa abans que venci l'assegurança, la cita o el manteniment. I reactiva qui fa temps que no torna.",
+      "io.eyebrow": "<span class=\"dot\"></span>Connectat als teus sistemes",
+      "io.title": "Cada conversa, <span class=\"grad-text\">sincronitzada amb el teu CRM, agenda i ERP.</span>",
       "io.tab1": "Text",
       "io.tab2": "Àudio",
       "io.tab3": "Imatge",
@@ -264,6 +299,35 @@
       "io.p3.k3": "Servei", "io.p3.v3": "Retirada · 90–140 €",
       "io.p3.k4": "Visita", "io.p3.v4": "Proposada aquesta setmana",
       "io.p3.dest": "Pressupost enviat i visita agendada",
+      "io.inLabel": "Del client al teu negoci",
+      "io.outLabel": "Del teu negoci al client",
+      "a11y.tablistOut": "Cas outbound",
+      "io.outTab1": "Recordatori",
+      "io.outTab2": "Cobrament",
+      "io.outTab3": "Renovació",
+      "io.waClient": "WhatsApp · Client",
+      "io.tplPill": "Plantilla aprovada",
+      "io.o1.sys": "El teu sistema · Agenda",
+      "io.o1.k1": "Cita", "io.o1.v1": "Demà · 10:00",
+      "io.o1.k2": "Client",
+      "io.o1.k3": "Servei", "io.o1.v3": "Neteja dental",
+      "io.o1.k4": "Estat", "io.o1.v4": "Sense confirmar",
+      "io.o1.msg": "Hola Marta 👋 Et recordem la teva cita de demà a les 10:00 (neteja dental). La confirmes? Respon SÍ, o NO i te la reprogramo.<span class=\"time\">09:00<span class=\"tick\">✓✓</span></span>",
+      "io.o1.dest": "Confirmada — forat assegurat",
+      "io.o2.sys": "El teu sistema · Facturació",
+      "io.o2.k1": "Factura",
+      "io.o2.k2": "Import",
+      "io.o2.k3": "Estat", "io.o2.v3": "Vençuda fa 3 dies",
+      "io.o2.k4": "Client",
+      "io.o2.msg": "Hola, tens la factura #1042 de 148 € pendent. La pots pagar en 1 minut aquí: pagar.tubot.es/1042 Gràcies!<span class=\"time\">12:30<span class=\"tick\">✓✓</span></span>",
+      "io.o2.dest": "Pagament rebut i conciliat",
+      "io.o3.sys": "El teu sistema · CRM",
+      "io.o3.k1": "Pòlissa", "io.o3.v1": "Llar",
+      "io.o3.k2": "Venç", "io.o3.v2": "d'aquí a 7 dies",
+      "io.o3.k3": "Client",
+      "io.o3.k4": "Estat", "io.o3.v4": "Sense renovar",
+      "io.o3.msg": "Hola Luis, la teva assegurança de la llar venç el dia 25. La renovem amb les mateixes condicions? Respon SÍ i me n'encarrego de tot.<span class=\"time\">17:45<span class=\"tick\">✓✓</span></span>",
+      "io.o3.dest": "Renovació confirmada",
       "stats.l1": "Temps de resposta",
       "stats.l2": "Atenció sense descans",
       "stats.n3": "+8.000",
@@ -369,8 +433,8 @@
       "seo.orgDesc": "Tubot és una empresa espanyola que desenvolupa, desplega i opera bots de WhatsApp Business amb IA per a empreses. Els seus bots atenen clients, qualifiquen leads, gestionen cites, processen documents, responen àudios i integren converses amb CRM, ERP i eines internes.",
       "seo.svcName": "Bots de WhatsApp Business amb IA per a empreses",
       "seo.svcType": "Automatització de WhatsApp Business amb intel·ligència artificial",
-      "seo.svcDesc": "Tubot crea bots de WhatsApp Business entrenats per a cada negoci, connectats als seus sistemes i operats de forma contínua. El servei inclou desplegament, integracions, manteniment, suport i millora contínua.",
-      "seo.svcAud": "Empreses que reben clients, leads, reserves, documents o suport per WhatsApp"
+      "seo.svcDesc": "Tubot crea bots de WhatsApp Business entrenats per a cada negoci, connectats als seus sistemes i operats de forma contínua. Atenen els missatges que entren i també s'avancen — recordatoris de cita, avisos de cobrament i de renovació — amb plantilles aprovades per Meta. El servei inclou desplegament, integracions, manteniment, suport i millora contínua.",
+      "seo.svcAud": "Empreses que reben — o avisen proactivament — clients, leads, reserves, documents, cobraments o suport per WhatsApp"
     }
   };
 
@@ -615,8 +679,8 @@
     });
   });
 
-  /* ---------- Demo multimodal (entrada → salida): tabs ---------- */
-  const ioTabs = document.querySelectorAll('.io-tab');
+  /* ---------- Demo multimodal (entrada → salida): tabs inbound ---------- */
+  const ioTabs = document.querySelectorAll('.io-tab:not(.io-tab-out)');
   if (ioTabs.length) {
     ioTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -628,6 +692,24 @@
         });
         document.querySelectorAll('.io-panel').forEach(p => {
           p.classList.toggle('active', p.dataset.ioPanel === key);
+        });
+      });
+    });
+  }
+
+  /* ---------- Demo multimodal (sistema → WhatsApp): tabs outbound ---------- */
+  const ioTabsOut = document.querySelectorAll('.io-tab-out');
+  if (ioTabsOut.length) {
+    ioTabsOut.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const key = tab.dataset.ioOut;
+        ioTabsOut.forEach(t => {
+          const on = t === tab;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        document.querySelectorAll('.io-panel-out').forEach(p => {
+          p.classList.toggle('active', p.dataset.ioOutPanel === key);
         });
       });
     });
