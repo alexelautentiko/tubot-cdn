@@ -686,6 +686,8 @@ h2.section-title {
 }
 @media (max-width: 920px) { .proc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .proc-grid { grid-template-columns: 1fr; } }
+/* grupo "Cuando escribes tú": 4 tarjetas en 2×2 en escritorio (en tablet/móvil hereda 2/1 cols) */
+@media (min-width: 921px) { .proc-grid-out { grid-template-columns: repeat(2, 1fr); } }
 .proc-card {
   background: var(--surface);
   border: 1px solid var(--border);
