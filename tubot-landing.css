@@ -337,7 +337,8 @@ h2.section-title {
     line-height: 1.04;
     text-wrap: initial;
   }
-  .hero h1 .rotator { display: block; white-space: normal; }
+  /* reserva siempre 2 líneas: así el subtítulo y los botones no saltan cuando cambia la palabra */
+  .hero h1 .rotator { display: block; white-space: normal; min-height: calc(2 * 1.12em + 0.08em); }
   .hero h1 .rotator-word { white-space: normal; line-height: 1.12; padding-bottom: 0.08em; }
 }
 @media (max-width: 480px) {
@@ -995,6 +996,9 @@ h2.section-title {
 .footer-inner .meta { color: var(--soft); font-size: 13.5px; }
 .footer-inner a:not(.btn) { color: var(--muted); text-decoration: none; font-size: 14px; }
 .footer-inner a:not(.btn):hover { color: var(--text); }
+/* enlace al perfil de Trustpilot: solo texto + estrella, sin widget ni script externo (verde de marca Trustpilot) */
+.footer-inner a.footer-tp { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 13.5px; }
+.footer-tp svg { width: 14px; height: 14px; color: #00B67A; flex: none; }
 .footer-social { display: flex; gap: 10px; margin-top: 12px; }
 .footer-social a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); transition: transform .18s var(--ease), color .2s, border-color .2s, background .2s; }
 .footer-social a:hover { color: var(--text); border-color: var(--border-2); background: rgba(255,255,255,0.09); transform: translateY(-2px); }
