@@ -34,6 +34,8 @@
       "hero.micro1": "Our AI replies",
       "hero.micro2": "Free consultation",
       "hero.micro3": "No commitment",
+      "hero.newTag": "New",
+      "hero.newIg": "It also answers your Instagram DMs",
       "hero.status": "online",
       "trust.label": "POWERED BY THE BEST AI",
       "proc.eyebrow": "<span class=\"dot\"></span>Processes, not bots",
@@ -194,6 +196,8 @@
       "price.o2p": "A WhatsApp button on your website and in your team's emails.",
       "price.o3h": "Google and your ads",
       "price.o3p": "A WhatsApp button on your Google Business profile and in your Facebook and Instagram ads.",
+      "price.o4h": "Your Instagram",
+      "price.o4p": "The same bot handles the direct messages of your professional account, with the same voice and the same processes.",
       "final.eyebrow": "<span class=\"dot\"></span>Free consultation on WhatsApp",
       "final.title": "Your competitors are already using AI. <span class=\"grad-text\">Are you?</span>",
       "final.cta": "Audit on WhatsApp",
@@ -218,6 +222,8 @@
       "faq.a7": "From €249/month, with no installation fee and an annual commitment. The final price depends on message volume, integrations and complexity, and we confirm it in the free audit. It includes installation, maintenance, support, updates and continuous improvement.",
       "faq.q8": "Do you only work in Spain?",
       "faq.a8": "We operate mainly in Spain and also with companies across Latin America (Mexico, Argentina, Chile and Colombia). The bot adapts to each company's language, tone, processes and tools.",
+      "faq.q9": "Does it work on Instagram too?",
+      "faq.a9": "Yes. The same bot handles the direct messages of your professional Instagram account, with the same voice and processes as on WhatsApp. We define it in the initial audit; you only need a professional account with the “Allow access to messages” setting enabled.",
       "foot.meta": "AI for WhatsApp Business · <a href=\"mailto:hola@tubot.es\">hola@tubot.es</a>",
       "foot.tp": "Reviews on Trustpilot",
       "foot.cta": "Audit on WhatsApp",
@@ -253,6 +259,8 @@
       "hero.micro1": "Et respon la nostra IA",
       "hero.micro2": "Consultoria gratis",
       "hero.micro3": "Sense compromís",
+      "hero.newTag": "Nou",
+      "hero.newIg": "També respon els DM del teu Instagram",
       "hero.status": "en línia",
       "trust.label": "POTENCIAT PER LA MILLOR IA",
       "proc.eyebrow": "<span class=\"dot\"></span>Processos, no bots",
@@ -413,6 +421,8 @@
       "price.o2p": "Un botó de WhatsApp a la teva pàgina web i als correus del teu equip.",
       "price.o3h": "Google i els teus anuncis",
       "price.o3p": "Un botó de WhatsApp a la teva fitxa de Google i als teus anuncis de Facebook i Instagram.",
+      "price.o4h": "El teu Instagram",
+      "price.o4p": "El mateix bot atén els missatges directes del teu compte professional, amb la mateixa veu i els mateixos processos.",
       "final.eyebrow": "<span class=\"dot\"></span>Consultoria gratuïta per WhatsApp",
       "final.title": "La teva competència ja fa servir IA. <span class=\"grad-text\">I tu?</span>",
       "final.cta": "Auditoria per WhatsApp",
@@ -437,6 +447,8 @@
       "faq.a7": "Des de 249€/mes, sense cost d'instal·lació i amb compromís anual. El preu final depèn del volum de missatges, integracions i complexitat, i el concretem a l'auditoria gratuïta. Inclou instal·lació, manteniment, suport, actualitzacions i millora contínua.",
       "faq.q8": "Treballa només a Espanya?",
       "faq.a8": "Operem principalment a Espanya i també amb empreses de Llatinoamèrica (Mèxic, Argentina, Xile i Colòmbia). El bot s'adapta a l'idioma, to, processos i eines de cada empresa.",
+      "faq.q9": "Funciona també a Instagram?",
+      "faq.a9": "Sí. El mateix bot atén els missatges directes del teu compte professional d'Instagram, amb la mateixa veu i els mateixos processos que a WhatsApp. Ho concretem a l'auditoria inicial; només necessites un compte professional amb l'ajust «Permet l'accés als missatges» activat.",
       "foot.meta": "IA per a WhatsApp Business · <a href=\"mailto:hola@tubot.es\">hola@tubot.es</a>",
       "foot.tp": "Opinions a Trustpilot",
       "foot.cta": "Auditoria per WhatsApp",
@@ -466,6 +478,11 @@
   }
 
   (function applyI18n() {
+    // FAQ del JSON-LD: mapa "texto ES de la pregunta" -> "q9" (se captura antes de traducir el DOM)
+    const faqKeyByEs = {};
+    document.querySelectorAll('[data-i18n^="faq.q"]').forEach(el => {
+      faqKeyByEs[el.textContent.replace(/\s+/g, ' ').trim()] = el.getAttribute('data-i18n').slice(4);
+    });
     if (LANG !== 'es') {
       // 1) innerHTML por clave (clave ausente -> se queda el español)
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -523,8 +540,10 @@
             }
             if (node['@type'] === 'FAQPage' && Array.isArray(node.mainEntity)) {
               node.mainEntity.forEach((q, i) => {
-                q.name = t('faq.q' + (i + 1)) || q.name;
-                if (q.acceptedAnswer) q.acceptedAnswer.text = t('faq.a' + (i + 1)) || q.acceptedAnswer.text;
+                const k = faqKeyByEs[String(q.name || '').replace(/\s+/g, ' ').trim()];
+                const n = k ? k.slice(1) : String(i + 1);
+                q.name = t('faq.q' + n) || q.name;
+                if (q.acceptedAnswer) q.acceptedAnswer.text = t('faq.a' + n) || q.acceptedAnswer.text;
               });
             }
           });
@@ -947,6 +966,18 @@
     }
 
     setInterval(next, 1700);
+  })();
+
+  /* ---------- Ancla a una pregunta del FAQ: abre el <details> (p. ej. #faq-instagram) ---------- */
+  (function () {
+    function openFaqFromHash() {
+      const id = location.hash.slice(1);
+      if (!id) return;
+      const d = document.getElementById(id);
+      if (d && d.tagName === 'DETAILS') d.open = true;
+    }
+    window.addEventListener('hashchange', openFaqFromHash);
+    openFaqFromHash();
   })();
 
 })();

@@ -207,6 +207,30 @@ h2.section-title {
 .cta-microcopy span { display: inline-flex; align-items: center; gap: 7px; }
 .cta-microcopy svg { width: 15px; height: 15px; color: var(--wa); }
 
+/* Pill "Nuevo": canal Instagram (enlaza a la FAQ) */
+.hero-new {
+  display: inline-flex; align-items: center; gap: 9px;
+  margin-top: 18px;
+  padding: 6px 12px 6px 6px;
+  font-size: 14px; font-weight: 600; color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--border-2); border-radius: var(--r-pill);
+  background: rgba(255,255,255,0.03);
+  transition: background .2s var(--ease), border-color .2s var(--ease);
+}
+.hero-new:hover { background: var(--surface-2); }
+.hero-new-tag {
+  display: inline-flex; align-items: center;
+  padding: 3px 9px; border-radius: var(--r-pill);
+  background: var(--grad); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.hero-new > svg { width: 16px; height: 16px; flex-shrink: 0; }
+.hero-new-chev { color: var(--muted); margin-left: -2px; }
+.hero-new > span:not(.hero-new-tag) { text-wrap: balance; }
+.hero-new:hover .hero-new-chev { color: var(--text); }
+@media (max-width: 760px) { .hero-new { font-size: 13.5px; } }
+
 /* ============================================================
    HEADER
    ============================================================ */
@@ -970,7 +994,7 @@ h2.section-title {
    FAQ
    ============================================================ */
 .faq-list { max-width: 800px; margin: 0 auto; display: grid; gap: 12px; }
-.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; transition: border-color .2s; }
+.faq-item { scroll-margin-top: 96px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; transition: border-color .2s; }
 .faq-item[open] { border-color: var(--border-2); }
 .faq-item summary {
   list-style: none; cursor: pointer; padding: 22px 24px;
@@ -1153,7 +1177,7 @@ h2.section-title {
 .intg-name { font-size: 14px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; line-height: 1.2; }
 /* la tarjeta "+8.000 apps" conserva su icono monocromo y el hover de marca */
 .intg-more:hover .intg-ic { background: var(--grad); color: #fff; border-color: transparent; }
-.intg-more { border-style: dashed; }
+.intg-more { border-style: dashed; grid-column: 1 / -1; flex-direction: row; justify-content: center; gap: 14px; padding: 16px 12px; }
 .intg-more .intg-name { color: var(--muted); }
 .intg-note { text-align: center; color: var(--muted); font-size: 15px; margin-top: 26px; }
 @media (max-width: 900px) { .intg-grid { grid-template-columns: repeat(4, 1fr); } }
