@@ -238,7 +238,7 @@
       "wa.proceso": "Hi, I'd like to automate a process in my WhatsApp with AI",
       "wa.precio": "Hi, I'd like to know Tubot's price for my business",
       "lead.title": "We'll message you on WhatsApp right now",
-      "lead.sub": "Leave your name and number. Our AI will message you in seconds for your free consultation.",
+      "lead.sub": "Leave your name and number. Our AI will message you in seconds.",
       "lead.name": "Name",
       "lead.namePh": "Your name",
       "lead.phone": "WhatsApp",
@@ -482,7 +482,7 @@
       "wa.proceso": "Hola, vull automatitzar un procés del meu WhatsApp amb IA",
       "wa.precio": "Hola, vull saber el preu de Tubot per al meu negoci",
       "lead.title": "T'escrivim per WhatsApp ara mateix",
-      "lead.sub": "Deixa'ns el teu nom i el teu número. La nostra IA t'escriu en segons per a la teva consultoria gratuïta.",
+      "lead.sub": "Deixa'ns el teu nom i el teu número. La nostra IA t'escriu en segons.",
       "lead.name": "Nom",
       "lead.namePh": "El teu nom",
       "lead.phone": "WhatsApp",
@@ -597,6 +597,33 @@
     });
     // soltar el guard anti-FOUC del page-head (no-op en ES, donde la clase no existe)
     document.documentElement.classList.remove('i18n-pending');
+  })();
+
+  /* ---------- Origen del lead en los wa.me (campañas de pago) ---------- */
+  // Los anuncios llegan con utm_campaign (sufijo de URL final de cada campaña en Google Ads).
+  // Ese código se añade al texto precargado de WhatsApp como "(ref: dg)" para ver en el inbox
+  // del bot de qué campaña viene cada conversación. Con gclid/gbraid/wbraid pero sin
+  // utm_campaign el código es "g". Sin campaña los enlaces no se tocan. sessionStorage lo
+  // conserva si la página se recarga sin query. Va después de applyI18n, que reescribe los href.
+  (function () {
+    const valid = c => /^[a-z0-9_-]{1,20}$/.test(c);
+    let ref = '';
+    try {
+      const qs = new URLSearchParams(location.search);
+      const c = (qs.get('utm_campaign') || '').toLowerCase();
+      if (valid(c)) ref = c;
+      else if (qs.get('gclid') || qs.get('gbraid') || qs.get('wbraid')) ref = 'g';
+      if (ref) sessionStorage.setItem('tubot_ref', ref);
+      else ref = sessionStorage.getItem('tubot_ref') || '';
+    } catch (e) {}
+    if (!valid(ref)) return;
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+      try {
+        const u = new URL(a.href);
+        const text = u.searchParams.get('text');
+        if (text) a.href = u.origin + u.pathname + '?text=' + encodeURIComponent(text + ' (ref: ' + ref + ')');
+      } catch (e) {}
+    });
   })();
 
   const ticks = '<span class="tick">✓✓</span>';
@@ -997,7 +1024,7 @@
 
     const ES = {
       'lead.title': 'Te escribimos por WhatsApp ahora mismo',
-      'lead.sub': 'Déjanos tu nombre y tu número. Nuestra IA te escribe en segundos para tu consultoría gratuita.',
+      'lead.sub': 'Déjanos tu nombre y tu número. Nuestra IA te escribe en segundos.',
       'lead.name': 'Nombre',
       'lead.namePh': 'Tu nombre',
       'lead.phone': 'WhatsApp',
