@@ -1181,3 +1181,73 @@ h2.section-title {
   .intg { padding: 18px 10px; }
   .intg-ic { width: 42px; height: 42px; }
 }
+
+/* ============================================================
+   FORMULARIO "TE ESCRIBIMOS" (modal de escritorio, lo crea el JS)
+   ============================================================ */
+/* Webflow estiliza label/input/button por tag (bold, margin, fuente): aquí se fija todo explícito. */
+.lead-dlg {
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  margin: auto; padding: 36px 34px 28px;
+  color: var(--text); font-family: var(--font);
+  background: var(--surface);
+  border: 1px solid var(--border-2); border-radius: var(--r-lg);
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.7);
+  overflow-y: auto;
+}
+.lead-dlg::backdrop { background: rgba(4,10,14,0.72); backdrop-filter: blur(4px); }
+.lead-dlg[open] { animation: lead-in .35s var(--ease); }
+@keyframes lead-in { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .lead-dlg[open] { animation: none; } }
+
+.lead-x {
+  position: absolute; top: 14px; right: 14px;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: transparent; border: 0; cursor: pointer;
+  color: var(--muted); font: 400 26px/1 var(--font);
+  transition: background .2s var(--ease), color .2s var(--ease);
+}
+.lead-x:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+
+.lead-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.lead-step[hidden] { display: none; }
+.lead-badge {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center; margin-bottom: 18px;
+  background: var(--wa); color: #fff;
+  box-shadow: 0 0 0 6px rgba(37,211,102,0.14);
+}
+.lead-badge svg { width: 28px; height: 28px; }
+.lead-badge-ok { background: var(--grad); box-shadow: 0 0 0 6px rgba(147,51,234,0.18); }
+.lead-title { font-size: 25px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+.lead-sub { color: var(--muted); font-size: 15.5px; line-height: 1.5; margin-bottom: 22px; }
+.lead-sub strong { color: var(--text); white-space: nowrap; }
+
+.lead-form { width: 100%; display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.lead-field { display: flex; flex-direction: column; gap: 6px; margin: 0; font-weight: 600; font-size: 13.5px; color: var(--muted); }
+.lead-field input {
+  width: 100%; height: 50px; margin: 0; padding: 0 16px;
+  font: 500 16px var(--font); color: var(--text);
+  background: var(--bg-2); border: 1px solid var(--border-2); border-radius: var(--r-sm);
+  outline: none; transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.lead-field input::placeholder { color: var(--soft); }
+.lead-field input:focus { border-color: var(--wa); box-shadow: 0 0 0 3px rgba(37,211,102,0.2); }
+.lead-consent {
+  display: flex; align-items: flex-start; gap: 10px; margin: 2px 0 0;
+  font-weight: 400; font-size: 13px; line-height: 1.45; color: var(--muted); cursor: pointer;
+}
+.lead-consent input { flex-shrink: 0; width: 17px; height: 17px; margin: 1px 0 0; accent-color: var(--wa); cursor: pointer; }
+.lead-consent a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+.lead-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.lead-err { min-height: 0; color: #FF7A9C; font-size: 13.5px; font-weight: 600; }
+.lead-err:empty { display: none; }
+.lead-submit { margin-top: 4px; font-family: var(--font); border: 0; cursor: pointer; }
+.lead-submit:disabled { opacity: .7; cursor: progress; transform: none; }
+.lead-micro { text-align: center; color: var(--soft); font-size: 12.5px; margin-top: -4px; }
+.lead-alt { margin-top: 18px; font-size: 13.5px; color: var(--muted); text-decoration: none; }
+.lead-alt span { color: var(--wa); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.lead-alt:hover span { color: var(--text); }
+.lead-ok-btn { margin-top: 2px; font-family: var(--font); cursor: pointer; }

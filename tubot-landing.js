@@ -237,6 +237,25 @@
       "wa.consultoria": "Hi, I'd like my free Tubot consultation",
       "wa.proceso": "Hi, I'd like to automate a process in my WhatsApp with AI",
       "wa.precio": "Hi, I'd like to know Tubot's price for my business",
+      "lead.title": "We'll message you on WhatsApp right now",
+      "lead.sub": "Leave your name and number. Our AI will message you in seconds for your free consultation.",
+      "lead.name": "Name",
+      "lead.namePh": "Your name",
+      "lead.phone": "WhatsApp",
+      "lead.phonePh": "+44 7700 900000",
+      "lead.consent": "I agree to Tubot messaging me on WhatsApp and accept the <a href=\"https://tubot.es/en/privacy-policy\" target=\"_blank\" rel=\"noopener\">privacy policy</a>.",
+      "lead.submit": "Message me on WhatsApp",
+      "lead.sending": "Sending…",
+      "lead.micro": "No commitment · No spam",
+      "lead.alt": "Prefer to write to us yourself? <span>Open WhatsApp</span>",
+      "lead.okTitle": "Done, {name}!",
+      "lead.okText": "We've just messaged you at <strong>{phone}</strong>. Open WhatsApp on your phone.",
+      "lead.okBtn": "Got it",
+      "lead.errName": "Tell us your name.",
+      "lead.errPhone": "Check the number (include the country code, e.g. +44).",
+      "lead.errConsent": "We need your consent to message you.",
+      "lead.errSend": "We couldn't send it. Try again or open WhatsApp directly.",
+      "lead.close": "Close",
       "seo.title": "TUBOT | AI for WhatsApp Business",
       "seo.desc": "AI that automates your WhatsApp Business. Handles your customers, automates orders and quotes, and frees up your team. Available 24/7, trained for your business.",
       "seo.orgDesc": "Tubot is a Spanish company that builds, deploys and operates AI-powered WhatsApp Business bots for companies. Its bots handle customers, qualify leads, manage appointments, process documents, respond to voice notes and connect conversations with CRMs, ERPs and internal tools.",
@@ -462,6 +481,25 @@
       "wa.consultoria": "Hola, vull la meva consultoria gratuïta de Tubot",
       "wa.proceso": "Hola, vull automatitzar un procés del meu WhatsApp amb IA",
       "wa.precio": "Hola, vull saber el preu de Tubot per al meu negoci",
+      "lead.title": "T'escrivim per WhatsApp ara mateix",
+      "lead.sub": "Deixa'ns el teu nom i el teu número. La nostra IA t'escriu en segons per a la teva consultoria gratuïta.",
+      "lead.name": "Nom",
+      "lead.namePh": "El teu nom",
+      "lead.phone": "WhatsApp",
+      "lead.phonePh": "+34 600 000 000",
+      "lead.consent": "Accepto que Tubot m'escrigui per WhatsApp i la <a href=\"https://tubot.es/ca/privacy-policy\" target=\"_blank\" rel=\"noopener\">política de privacitat</a>.",
+      "lead.submit": "Escriu-me per WhatsApp",
+      "lead.sending": "Enviant…",
+      "lead.micro": "Sense compromís · Sense spam",
+      "lead.alt": "Prefereixes escriure'ns tu? <span>Obrir WhatsApp</span>",
+      "lead.okTitle": "Fet, {name}!",
+      "lead.okText": "T'acabem d'escriure al <strong>{phone}</strong>. Obre WhatsApp al mòbil.",
+      "lead.okBtn": "Entesos",
+      "lead.errName": "Digues-nos el teu nom.",
+      "lead.errPhone": "Revisa el número (amb el prefix del país si no és d'Espanya).",
+      "lead.errConsent": "Necessitem el teu consentiment per escriure't.",
+      "lead.errSend": "No s'ha pogut enviar. Torna-ho a provar o obre WhatsApp directament.",
+      "lead.close": "Tancar",
       "seo.title": "TUBOT | IA per a WhatsApp Business",
       "seo.desc": "IA que automatitza el teu WhatsApp Business. Atén els teus clients, automatitza comandes i pressupostos i allibera el teu equip. Disponible 24/7, entrenada per al teu negoci.",
       "seo.orgDesc": "Tubot és una empresa espanyola que desenvolupa, desplega i opera bots de WhatsApp Business amb IA per a empreses. Els seus bots atenen clients, qualifiquen leads, gestionen cites, processen documents, responen àudios i integren converses amb CRM, ERP i eines internes.",
@@ -907,17 +945,18 @@
   })();
 
   /* ---------- Tracking: evento click_whatsapp (dataLayer + gtag) ---------- */
+  // cta_location compartido con el formulario de escritorio (mismas etiquetas en GA)
+  function ctaLocation(a) {
+    if (a.getAttribute('data-cta')) return a.getAttribute('data-cta');
+    if (a.classList.contains('wa-float')) return 'Float';
+    if (a.closest('.site-header')) return 'Header';
+    if (a.closest('.sticky-cta')) return 'Sticky';
+    if (a.closest('.site-footer')) return 'Footer';
+    const sec = a.closest('[data-screen-label]');
+    if (sec) return sec.getAttribute('data-screen-label');
+    return 'Otro';
+  }
   (function () {
-    function ctaLocation(a) {
-      if (a.getAttribute('data-cta')) return a.getAttribute('data-cta');
-      if (a.classList.contains('wa-float')) return 'Float';
-      if (a.closest('.site-header')) return 'Header';
-      if (a.closest('.sticky-cta')) return 'Sticky';
-      if (a.closest('.site-footer')) return 'Footer';
-      const sec = a.closest('[data-screen-label]');
-      if (sec) return sec.getAttribute('data-screen-label');
-      return 'Otro';
-    }
     document.addEventListener('click', function (e) {
       const a = e.target.closest && e.target.closest('a[href*="wa.me"]');
       if (!a) return;
@@ -941,6 +980,179 @@
         window.gtag('event', 'calendly_booked', { language: LANG, transport_type: 'beacon' });
       }
     });
+  })();
+
+  /* ---------- Formulario "te escribimos" (solo escritorio) ---------- */
+  // En escritorio wa.me obliga a abrir WhatsApp Web/Desktop y ahí se cae mucha gente: los CTA
+  // abren un modal (nombre + WhatsApp) y es el bot quien escribe primero con una plantilla de Meta.
+  // En móvil todo sigue igual (clic directo). Apagado mientras LEAD_ENDPOINT esté vacío;
+  // ?leadform=1 lo fuerza para probar (sin endpoint simula el envío).
+  (function () {
+    const LEAD_ENDPOINT = ''; // p. ej. 'https://tubot-whatsapp.vercel.app/api/lead' cuando exista en el bot
+    let preview = false;
+    try { preview = new URLSearchParams(location.search).get('leadform') === '1'; } catch (e) {}
+    if (!LEAD_ENDPOINT && !preview) return;
+    if (typeof HTMLDialogElement !== 'function' || !window.matchMedia) return;
+    const desktop = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 900px)');
+
+    const ES = {
+      'lead.title': 'Te escribimos por WhatsApp ahora mismo',
+      'lead.sub': 'Déjanos tu nombre y tu número. Nuestra IA te escribe en segundos para tu consultoría gratuita.',
+      'lead.name': 'Nombre',
+      'lead.namePh': 'Tu nombre',
+      'lead.phone': 'WhatsApp',
+      'lead.phonePh': '+34 600 000 000',
+      'lead.consent': 'Acepto que Tubot me escriba por WhatsApp y la <a href="https://tubot.es/privacy-policy" target="_blank" rel="noopener">política de privacidad</a>.',
+      'lead.submit': 'Escríbeme por WhatsApp',
+      'lead.sending': 'Enviando…',
+      'lead.micro': 'Sin compromiso · Sin spam',
+      'lead.alt': '¿Prefieres escribirnos tú? <span>Abrir WhatsApp</span>',
+      'lead.okTitle': '¡Hecho, {name}!',
+      'lead.okText': 'Te acabamos de escribir al <strong>{phone}</strong>. Abre WhatsApp en tu móvil.',
+      'lead.okBtn': 'Entendido',
+      'lead.errName': 'Dinos tu nombre.',
+      'lead.errPhone': 'Revisa el número (con prefijo de país si no es de España).',
+      'lead.errConsent': 'Necesitamos tu consentimiento para escribirte.',
+      'lead.errSend': 'No hemos podido enviarlo. Inténtalo de nuevo o abre WhatsApp directamente.',
+      'lead.close': 'Cerrar'
+    };
+    const L = k => { const v = t(k); return v !== null ? v : ES[k]; };
+    const WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.413c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.042z"/></svg>';
+
+    // E.164: "+" y 8–15 dígitos. Sin prefijo, un 6/7/9 de 9 cifras se asume español.
+    function normPhone(raw) {
+      let p = String(raw || '').replace(/[\s().-]/g, '');
+      if (p.indexOf('00') === 0) p = '+' + p.slice(2);
+      if (p.charAt(0) !== '+') p = /^[679]\d{8}$/.test(p) ? '+34' + p : '';
+      return /^\+[1-9]\d{7,14}$/.test(p) ? p : null;
+    }
+    function push(ev, extra) {
+      const data = Object.assign({ language: LANG }, extra);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: ev }, data));
+      if (typeof window.gtag === 'function') window.gtag('event', ev, Object.assign({ transport_type: 'beacon' }, data));
+    }
+
+    const dlg = document.createElement('dialog');
+    dlg.className = 'lead-dlg';
+    dlg.setAttribute('aria-labelledby', 'leadTitle');
+    dlg.innerHTML =
+      '<button type="button" class="lead-x" aria-label="' + L('lead.close') + '">&times;</button>' +
+      '<div class="lead-step lead-step-form">' +
+        '<div class="lead-badge">' + WA_ICON + '</div>' +
+        '<h2 class="lead-title" id="leadTitle">' + L('lead.title') + '</h2>' +
+        '<p class="lead-sub">' + L('lead.sub') + '</p>' +
+        '<form class="lead-form" novalidate>' +
+          '<label class="lead-field"><span>' + L('lead.name') + '</span>' +
+            '<input name="name" type="text" autocomplete="name" maxlength="80" required placeholder="' + L('lead.namePh') + '"></label>' +
+          '<label class="lead-field"><span>' + L('lead.phone') + '</span>' +
+            '<input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" required placeholder="' + L('lead.phonePh') + '"></label>' +
+          '<label class="lead-hp" aria-hidden="true">Company<input name="company" type="text" tabindex="-1" autocomplete="off"></label>' +
+          '<label class="lead-consent"><input name="consent" type="checkbox" required><span>' + L('lead.consent') + '</span></label>' +
+          '<p class="lead-err" role="alert"></p>' +
+          '<button type="submit" class="btn btn-wa btn-block btn-shine lead-submit">' + WA_ICON + '<span>' + L('lead.submit') + '</span></button>' +
+          '<p class="lead-micro">' + L('lead.micro') + '</p>' +
+        '</form>' +
+        '<a class="lead-alt" data-cta="Formulario" target="_blank" rel="noopener">' + L('lead.alt') + '</a>' +
+      '</div>' +
+      '<div class="lead-step lead-step-ok" hidden>' +
+        '<div class="lead-badge lead-badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>' +
+        '<h2 class="lead-title lead-ok-title"></h2>' +
+        '<p class="lead-sub lead-ok-text"></p>' +
+        '<button type="button" class="btn btn-ghost lead-ok-btn">' + L('lead.okBtn') + '</button>' +
+      '</div>';
+    document.body.appendChild(dlg);
+
+    const form = dlg.querySelector('.lead-form');
+    const err = dlg.querySelector('.lead-err');
+    const submit = dlg.querySelector('.lead-submit');
+    const alt = dlg.querySelector('.lead-alt');
+    const stepForm = dlg.querySelector('.lead-step-form');
+    const stepOk = dlg.querySelector('.lead-step-ok');
+    let ctx = null; // CTA que abrió el modal: { loc, intent, reason }
+
+    function open(a) {
+      let intent = '';
+      try { intent = new URL(a.href).searchParams.get('text') || ''; } catch (e) {}
+      // reason = clave del CTA (consultoria|precio|proceso|implementar): el bot la pone en {{2}}
+      ctx = { loc: ctaLocation(a), intent: intent, reason: a.getAttribute('data-i18n-wa') };
+      alt.href = a.href;
+      err.textContent = '';
+      stepForm.hidden = false; stepOk.hidden = true;
+      dlg.showModal();
+      form.elements.name.focus();
+      push('lead_form_open', { cta_location: ctx.loc });
+    }
+    function close() { dlg.close(); }
+
+    // window + captura: corre ANTES que los listeners de document (click_whatsapp, OpenAI
+    // lead_created, GTM), y stopPropagation evita que cuenten una apertura de modal como lead.
+    window.addEventListener('click', function (e) {
+      if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest && e.target.closest('a[data-i18n-wa]');
+      if (!a || !desktop.matches) return;
+      e.preventDefault();
+      e.stopPropagation();
+      open(a);
+    }, true);
+
+    dlg.querySelector('.lead-x').addEventListener('click', close);
+    dlg.querySelector('.lead-ok-btn').addEventListener('click', close);
+    dlg.addEventListener('click', e => { if (e.target === dlg) close(); }); // clic en el backdrop
+    form.addEventListener('input', () => { err.textContent = ''; });
+
+    // window + captura, igual que el clic: la medición mejorada de GA4 contaría cada intento
+    // (también los que no pasan la validación) como form_submit, que es evento clave en la
+    // propiedad. El lead se mide solo con generate_lead tras el envío bueno.
+    window.addEventListener('submit', function (e) {
+      if (e.target !== form) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const name = form.elements.name.value.trim().replace(/\s+/g, ' ');
+      const phone = normPhone(form.elements.phone.value);
+      if (name.length < 2) { err.textContent = L('lead.errName'); form.elements.name.focus(); return; }
+      if (!phone) { err.textContent = L('lead.errPhone'); form.elements.phone.focus(); return; }
+      if (!form.elements.consent.checked) { err.textContent = L('lead.errConsent'); form.elements.consent.focus(); return; }
+
+      const qs = new URLSearchParams(location.search);
+      const attribution = {};
+      ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+        .forEach(k => { if (qs.get(k)) attribution[k] = qs.get(k); });
+      const payload = {
+        name: name, phone: phone, consent: true, language: LANG,
+        reason: ctx.reason, intent: ctx.intent, cta_location: ctx.loc,
+        page: location.href.split('#')[0], referrer: document.referrer || '', attribution: attribution,
+        company: form.elements.company.value // honeypot: el backend descarta si viene relleno
+      };
+
+      submit.disabled = true;
+      submit.querySelector('span').textContent = L('lead.sending');
+      const send = LEAD_ENDPOINT
+        ? fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+            .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); })
+        : new Promise(res => setTimeout(res, 900)); // preview sin backend
+
+      send.then(function () {
+        push('generate_lead', { cta_location: ctx.loc, method: 'whatsapp_form' });
+        // OpenAI Ads: el lead real es el envío (la apertura del modal no llega a su listener)
+        try { if (typeof window.oaiq === 'function') window.oaiq('measure', 'lead_created', { type: 'customer_action' }, {}); } catch (e2) {}
+        const tpl = s => s.replace('{name}', '<span class="lead-ok-name"></span>').replace('{phone}', '<span class="lead-ok-phone"></span>');
+        const title = dlg.querySelector('.lead-ok-title'), text = dlg.querySelector('.lead-ok-text');
+        title.innerHTML = tpl(L('lead.okTitle'));
+        text.innerHTML = tpl(L('lead.okText'));
+        title.querySelector('.lead-ok-name').textContent = name.split(' ')[0];
+        text.querySelector('.lead-ok-phone').textContent = phone;
+        form.reset();
+        stepForm.hidden = true; stepOk.hidden = false;
+        dlg.querySelector('.lead-ok-btn').focus();
+      }).catch(function () {
+        err.textContent = L('lead.errSend');
+        push('lead_form_error', { cta_location: ctx.loc });
+      }).then(function () {
+        submit.disabled = false;
+        submit.querySelector('span').textContent = L('lead.submit');
+      });
+    }, true);
   })();
 
   /* ---------- Rotador de procesos en el titular ---------- */
