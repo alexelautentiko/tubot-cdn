@@ -1,0 +1,41 @@
+/* ============================================================
+   TUBOT — Landing "Automatización de WhatsApp a medida" (/automatizacion-whatsapp)
+   Se carga DESPUÉS de tubot-landing.css y tubot-setter.css: hereda el hero centrado,
+   los pasos apilados, el bento, la comparativa y el bloque "pruébalo" del setter, y
+   los paneles entrada → salida (.io-*) de la Home. Aquí solo va lo propio.
+   ============================================================ */
+
+/* ---------- Selector de procesos bajo el hero ---------- */
+.proc-picker { max-width: 1000px; margin: 56px auto 0; text-align: left; } /* el hero está centrado; los paneles no */
+.proc-picker-label {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin-bottom: 18px;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--soft);
+}
+.proc-picker-label::before, .proc-picker-label::after { content: ""; width: 40px; height: 1px; background: var(--border-2); }
+.proc-picker .io-tabs { margin-bottom: 26px; }
+.proc-picker .io-grid { max-width: 940px; }
+/* la burbuja con foto reutiliza los assets de la Home */
+.proc-picker .msg .photo { height: 110px; }
+@media (max-width: 600px) {
+  .proc-picker { margin-top: 40px; }
+  .proc-picker .io-tab { padding: 9px 13px; font-size: 13px; }
+}
+
+/* ---------- Dos planos: hacia fuera / hacia dentro (bento) ---------- */
+.bento-card.inward { border-color: rgba(22,171,240,0.35); }
+.bento-card.inward .proc-ic svg { color: var(--magenta); }
+.bv-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+  padding: 5px 10px; border-radius: var(--r-pill);
+}
+.bv-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- Sectores (marquee de la Home) dentro de una sección propia ---------- */
+.sectors-sec .section-head { margin-bottom: 34px; }
+
+/* ---------- Precio: "lo que no pagas aparte" ---------- */
+.obj h4 svg.ok { color: var(--wa); }
