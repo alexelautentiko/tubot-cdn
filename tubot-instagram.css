@@ -1,0 +1,64 @@
+/* ============================================================
+   TUBOT — Landing "Setter IA para Instagram" (/setter-instagram)
+   Se carga DESPUÉS de tubot-landing.css y tubot-setter.css: hereda toda la
+   maqueta del setter y solo cambia lo propio del canal (DM de Instagram, CTA).
+   ============================================================ */
+
+/* ---------- CTA de Instagram (abre el DM): degradado de marca, blanco encima ---------- */
+.btn-ig {
+  background: linear-gradient(115deg, #E5179B 0%, #8B2BE0 58%, #5B5BF0 100%);
+  color: #fff;
+  box-shadow: 0 10px 30px -8px rgba(139,43,224,0.62);
+}
+.btn-ig:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 16px 40px -10px rgba(139,43,224,0.72); }
+.btn-ig:active { transform: translateY(0) scale(.98); }
+.btn-ig svg { stroke-width: 2.2; }
+
+/* botón flotante (escritorio), gemelo del .wa-float */
+.ig-float {
+  position: fixed; right: 22px; bottom: 22px; z-index: 55;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(115deg, #E5179B 0%, #8B2BE0 58%, #5B5BF0 100%);
+  display: grid; place-items: center;
+  box-shadow: 0 12px 30px -6px rgba(139,43,224,0.6);
+  transition: transform .2s; animation: ig-pulse 2.6s infinite;
+}
+.ig-float:hover { transform: scale(1.07); }
+.ig-float svg { width: 30px; height: 30px; color: #fff; }
+@keyframes ig-pulse {
+  0% { box-shadow: 0 12px 30px -6px rgba(139,43,224,0.6), 0 0 0 0 rgba(139,43,224,0.5); }
+  70% { box-shadow: 0 12px 30px -6px rgba(139,43,224,0.6), 0 0 0 16px rgba(139,43,224,0); }
+  100% { box-shadow: 0 12px 30px -6px rgba(139,43,224,0.6), 0 0 0 0 rgba(139,43,224,0); }
+}
+@media (max-width: 600px) { .ig-float { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ig-float { animation: none; } }
+
+/* ---------- Hilo de DM de Instagram (modo oscuro): se aplica con la clase .ig ---------- */
+/* el reproductor de tubot-setter.js pinta .msg.in/.out, .typing y .ia-badge: aquí solo cambian colores y radios */
+.phone.ig .wa-header { background: #000; border-bottom: 1px solid #262626; }
+.phone.ig .wa-header .ava { box-shadow: 0 0 0 2px #000, 0 0 0 4px #E5179B; }
+.phone.ig .wa-header .meta .st { color: #A8A8A8; }
+.phone.ig .wa-header .ico { color: #F5F5F5; }
+.phone.ig .wa-body, .io-chat.ig, .bento-vis.ig { background-color: #000; background-image: none; }
+.ig .msg { border-radius: 20px; font-size: 13.5px; }
+.ig .msg.in { background: #262626; color: #F5F5F5; border-top-left-radius: 20px; }
+.ig .msg.out { background: linear-gradient(135deg, #8B2BE0, #3B82F6); color: #fff; border-top-right-radius: 20px; }
+.ig .msg .time { display: none; } /* Instagram no muestra hora ni ticks en cada burbuja */
+.ig .typing { background: #262626; border-radius: 20px; }
+.ig .msg .audio .play { background: rgba(255,255,255,0.18); }
+.ig .msg .audio .wave { background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.55) 0 2px, transparent 2px 5px); }
+.ig .ia-badge { color: #C4B5FD; background: rgba(139,43,224,0.16); border-color: rgba(139,43,224,0.4); }
+
+/* "Sin setter" / "Con Tubot": la píldora de la cabecera en los colores de Instagram */
+.io-pill.ig { background: linear-gradient(115deg, #E5179B, #8B2BE0); color: #fff; }
+
+/* chip de estado: el icono de Instagram no es de trazo uniforme, se ajusta */
+.chip-ic svg[data-ig] { stroke-width: 2; }
+
+/* el QR enlaza al DM: misma tarjeta, etiqueta "activa ahora" en violeta */
+.qr-live.ig { color: #C4B5FD; }
+.qr-live.ig .dot { background: #8B2BE0; box-shadow: 0 0 0 3px rgba(139,43,224,0.3); }
+
+/* CTA secundario de WhatsApp al lado del principal */
+.hero-actions .btn-ghost svg { color: var(--wa); }
+.tryus-note a { color: var(--text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
