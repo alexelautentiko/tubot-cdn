@@ -1,0 +1,328 @@
+/* ============================================================
+   TUBOT — Landing "Setter IA" (página dedicada)
+   Se carga DESPUÉS de tubot-landing.css: reutiliza sus tokens y componentes
+   (botones, .msg, .io-*, .intg-*, .price-*, .faq-*, .final) y solo añade lo propio.
+   ============================================================ */
+
+/* Acento tipográfico de los titulares: serif itálica (Instrument Serif, cargada en el <head>) */
+.serif-em {
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+  letter-spacing: -0.01em;
+  padding-right: 0.07em; /* la itálica sobresale de su caja: sin esto background-clip:text la recorta */
+}
+h2.section-title.free { max-width: none; }
+section.alt { background: var(--bg-2); }
+
+/* ============================================================
+   HERO (centrado: titular + móvil con chips de estado)
+   ============================================================ */
+.setter-hero { padding: 64px 0 84px; text-align: center; }
+.setter-hero .hero-copy { display: flex; flex-direction: column; align-items: center; }
+.setter-hero h1 { font-size: clamp(42px, 6.4vw, 78px); line-height: 1.03; margin-top: 24px; }
+.setter-hero h1 .rotator { display: block; }
+.setter-hero .hero-sub { font-size: 21px; max-width: 56ch; }
+.setter-hero .hero-actions,
+.setter-hero .cta-microcopy { justify-content: center; }
+
+.setter-stage {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 36px;
+  align-items: center;
+  max-width: 1020px;
+  margin: 60px auto 0;
+}
+.setter-stage .phone { text-align: left; }
+.stage-col { display: grid; gap: 18px; }
+.stage-col.left { justify-items: end; }
+.stage-col.right { justify-items: start; }
+.stage-chip {
+  display: flex; align-items: center; gap: 12px;
+  min-width: 236px;
+  padding: 14px 18px 14px 14px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: opacity .45s var(--ease), transform .45s var(--ease), border-color .45s var(--ease);
+}
+.chip-ic {
+  flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: 11px;
+  display: grid; place-items: center;
+  background: var(--grad-soft); border: 1px solid var(--border-2);
+  color: var(--cyan);
+  transition: background .45s var(--ease), color .45s var(--ease), border-color .45s var(--ease);
+}
+.chip-ic svg { width: 18px; height: 18px; }
+.stage-chip strong { display: block; font-size: 15px; font-weight: 800; line-height: 1.2; }
+.stage-chip small { display: block; margin-top: 3px; font-size: 12.5px; color: var(--muted); }
+/* con JS (.live) los chips arrancan apagados y se encienden al ritmo del chat; sin JS se ven todos */
+.setter-stage.live .stage-chip { opacity: .36; transform: translateY(6px); }
+.setter-stage.live .stage-chip.on { opacity: 1; transform: none; border-color: rgba(37,211,102,0.45); }
+.setter-stage.live .stage-chip.on .chip-ic {
+  background: rgba(37,211,102,0.14); border-color: rgba(37,211,102,0.35); color: var(--wa);
+}
+@media (max-width: 920px) {
+  .setter-stage { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 44px; }
+  .setter-stage .hero-phone-wrap { grid-column: 1 / -1; order: -1; margin-bottom: 14px; }
+  .stage-col { gap: 10px; align-content: start; }
+  .stage-col.left, .stage-col.right { justify-items: stretch; }
+  .stage-chip { min-width: 0; padding: 11px 12px; gap: 10px; }
+  .chip-ic { width: 32px; height: 32px; border-radius: 9px; }
+  .chip-ic svg { width: 16px; height: 16px; }
+  .stage-chip strong { font-size: 13.5px; }
+  .stage-chip small { display: none; }
+}
+@media (max-width: 600px) {
+  .setter-hero { padding: 40px 0 64px; }
+  .setter-hero h1 { font-size: clamp(38px, 10.6vw, 50px); }
+  .setter-hero .hero-sub { font-size: 18px; }
+}
+
+/* ============================================================
+   PROBLEMA (sin setter vs con Tubot)
+   ============================================================ */
+.gap-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 26px;
+  max-width: 940px; margin: 0 auto;
+  align-items: start;
+}
+.gap-card.with {
+  border: 1.5px solid transparent;
+  background-image: linear-gradient(var(--surface), var(--surface)), var(--grad);
+  background-origin: border-box; background-clip: padding-box, border-box;
+  box-shadow: 0 34px 80px -34px rgba(147,51,234,0.5);
+  transform: translateY(-14px);
+}
+.gap-card .io-chat { min-height: 232px; }
+.io-pill.late { background: rgba(255,255,255,0.08); color: var(--muted); }
+.gap-sep {
+  align-self: center;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--soft); background: rgba(255,255,255,0.05);
+  padding: 4px 11px; border-radius: var(--r-pill);
+  margin: 4px 0;
+}
+.io-dest.lost { background: rgba(229,23,155,0.06); }
+.io-dest.lost svg { color: #C2578F; }
+.io-dest.won { background: rgba(37,211,102,0.12); color: var(--text); font-weight: 700; }
+.gap-punch {
+  max-width: 30ch; margin: 44px auto 0;
+  text-align: center; text-wrap: balance;
+  font-size: clamp(20px, 2.5vw, 27px); font-weight: 800; line-height: 1.25; letter-spacing: -0.01em;
+}
+@media (max-width: 760px) {
+  .gap-grid { grid-template-columns: 1fr; gap: 18px; }
+  .gap-card.with { transform: none; }
+  .gap-card .io-chat { min-height: 0; }
+}
+
+/* ============================================================
+   CÓMO FUNCIONA (tarjetas numeradas que se apilan con el scroll)
+   ============================================================ */
+.steps { display: grid; gap: 26px; max-width: 1000px; margin: 0 auto; }
+.step-card {
+  position: sticky;
+  top: calc(92px + var(--i, 0) * 18px);
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 28px;
+  padding: 24px 38px 40px;
+  overflow: hidden;
+  box-shadow: 0 -20px 44px -26px rgba(0,0,0,0.7);
+}
+.step-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 18px; border-bottom: 1px solid var(--border);
+  font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cyan);
+}
+.step-top .cnt { color: var(--soft); position: relative; z-index: 1; }
+.step-num {
+  position: absolute; top: 2px; right: 24px;
+  font-size: 150px; font-weight: 900; line-height: 1; letter-spacing: -0.05em;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none; user-select: none;
+}
+.step-body {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  min-height: 290px; padding-top: 30px;
+}
+.step-body h3 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 900; text-wrap: balance; }
+.step-body p { margin-top: 14px; max-width: 40ch; color: var(--muted); font-size: 17.5px; }
+.step-vis .io-side { background: var(--bg-2); }
+.step-vis .io-row .v { display: inline-flex; align-items: center; gap: 10px; }
+.vis-ok {
+  flex-shrink: 0;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #0A141B; background: var(--wa);
+  padding: 3px 8px; border-radius: var(--r-pill);
+}
+.vis-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.vis-tile {
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 16px;
+}
+.vis-tile svg { width: 20px; height: 20px; color: var(--cyan); margin-bottom: 10px; display: block; }
+.vis-tile strong { display: block; font-size: 14.5px; font-weight: 800; line-height: 1.2; }
+.vis-tile span { display: block; margin-top: 4px; font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+.steps-note { text-align: center; color: var(--muted); font-size: 16px; margin-top: 34px; }
+.steps-note strong { color: var(--text); }
+@media (max-width: 820px) {
+  .steps { gap: 16px; }
+  /* sin apilado en móvil; relative (no static) para que el número de fondo siga anclado a su tarjeta */
+  .step-card { position: relative; top: auto; padding: 20px 20px 26px; border-radius: 22px; box-shadow: none; }
+  .step-body { grid-template-columns: 1fr; gap: 24px; min-height: 0; padding-top: 22px; }
+  .step-body p { font-size: 16.5px; }
+  .step-num { font-size: 96px; right: 12px; }
+}
+
+/* ============================================================
+   TODO INCLUIDO (bento)
+   ============================================================ */
+.bento { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.bento-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 24px;
+  transition: transform .25s var(--ease), border-color .25s var(--ease);
+}
+.bento-card:hover { transform: translateY(-4px); border-color: var(--border-2); }
+.bento-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.bento-head .proc-ic { margin-bottom: 0; flex-shrink: 0; }
+.bento-head h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; }
+.bento-vis {
+  display: flex; flex-direction: column; justify-content: center; gap: 8px;
+  min-height: 112px; padding: 14px; margin-bottom: 16px;
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-md);
+}
+.bento-vis .msg { max-width: 88%; font-size: 13px; }
+.bento-card > p { color: var(--muted); font-size: 15.5px; line-height: 1.5; }
+.bv-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-size: 13px; color: var(--muted);
+}
+.bv-row + .bv-row { padding-top: 8px; border-top: 1px dashed var(--border); }
+.bv-tag {
+  flex-shrink: 0;
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--wa);
+}
+.bv-tag.off { color: var(--soft); }
+.bv-day {
+  align-self: flex-end;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--soft); background: rgba(255,255,255,0.06);
+  padding: 3px 8px; border-radius: var(--r-pill);
+}
+.setter-strip { justify-content: center; margin-top: 32px; font-size: 15px; }
+@media (max-width: 920px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .bento { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   PRUÉBALO (QR + WhatsApp de Lara)
+   ============================================================ */
+.tryus { text-align: center; }
+.qr-card {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 14px;
+  padding: 20px 22px 18px;
+  border: 1.5px solid transparent; border-radius: 28px;
+  background-image: linear-gradient(var(--surface), var(--surface)), var(--grad);
+  background-origin: border-box; background-clip: padding-box, border-box;
+  box-shadow: 0 34px 90px -34px rgba(147,51,234,0.55);
+}
+.qr-live {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--wa);
+}
+.qr-live .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--wa); box-shadow: 0 0 0 3px rgba(37,211,102,0.25);
+}
+.qr-card img.qr { width: 208px; height: 208px; display: block; border-radius: 14px; background: #fff; }
+.qr-cap { font-size: 14px; font-weight: 700; }
+/* en el móvil un QR no se puede escanear: se sustituye por la ficha de Lara y queda el botón */
+.lara-chip { display: none; align-items: center; gap: 12px; text-align: left; }
+.lara-chip img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-2); }
+.lara-chip strong { display: block; font-size: 16px; font-weight: 800; }
+.tryus-actions { margin-top: 30px; }
+.tryus-note { margin-top: 14px; color: var(--soft); font-size: 14px; }
+@media (max-width: 760px) {
+  .qr-card img.qr, .qr-cap { display: none; }
+  .qr-card { flex-direction: row; padding: 14px 20px 14px 14px; border-radius: 20px; }
+  .qr-card > .qr-live { display: none; }
+  .lara-chip { display: flex; }
+}
+
+/* ============================================================
+   COMPARATIVA (setter humano / herramienta self-service / Tubot)
+   ============================================================ */
+.cmp-wrap {
+  max-width: 1000px; margin: 0 auto;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 28px; padding: 10px 26px 24px;
+}
+.cmp { width: 100%; border-collapse: separate; border-spacing: 0; }
+.cmp th, .cmp td {
+  padding: 17px 14px;
+  text-align: center; vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px; font-weight: 500; line-height: 1.35; color: var(--muted);
+}
+.cmp thead th { padding-top: 26px; font-size: 16px; font-weight: 800; color: var(--text); }
+.cmp thead th small {
+  display: block; margin-top: 5px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--soft);
+}
+.cmp tbody th { width: 30%; text-align: left; font-size: 15.5px; font-weight: 700; color: var(--text); }
+.cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+.cmp td::before { display: block; margin-bottom: 5px; font-size: 15px; font-weight: 800; }
+.cmp td.no::before { content: "\2715"; color: var(--soft); }
+.cmp td.ok::before { content: "\2713"; color: var(--muted); }
+.cmp td.best::before { content: "\2713\2713"; color: var(--wa); letter-spacing: -0.22em; }
+.cmp .col { display: none; }
+/* columna Tubot resaltada */
+.cmp .tb {
+  background: rgba(147,51,234,0.10);
+  border-left: 1.5px solid rgba(147,51,234,0.55);
+  border-right: 1.5px solid rgba(147,51,234,0.55);
+  color: var(--text); font-weight: 700;
+}
+.cmp thead .tb { border-top: 1.5px solid rgba(147,51,234,0.55); border-radius: 18px 18px 0 0; }
+.cmp thead .tb small { color: var(--cyan); }
+.cmp tbody tr:last-child .tb { border-bottom: 1.5px solid rgba(147,51,234,0.55); border-radius: 0 0 18px 18px; }
+.cmp-legs { justify-content: center; margin-top: 26px; font-size: 15px; }
+@media (max-width: 760px) {
+  .cmp-wrap { padding: 4px 18px 8px; border-radius: 22px; }
+  .cmp, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; }
+  .cmp thead { display: none; }
+  .cmp tbody tr { padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .cmp tbody tr:last-child { border-bottom: 0; }
+  .cmp tbody th { width: auto; padding: 0 0 8px; border: 0; font-size: 16.5px; }
+  .cmp td {
+    position: relative;
+    padding: 9px 12px 9px 38px; border: 0;
+    text-align: left; font-size: 14.5px;
+  }
+  .cmp td::before { position: absolute; left: 10px; top: 9px; margin: 0; }
+  .cmp .col {
+    display: block; margin-bottom: 2px;
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--soft);
+  }
+  .cmp .tb, .cmp tbody tr:last-child .tb {
+    border: 1.5px solid rgba(147,51,234,0.55); border-radius: 12px; margin-top: 6px;
+  }
+  .cmp .tb .col { color: var(--cyan); }
+}
+
+/* ============================================================
+   FAQ (nota final)
+   ============================================================ */
+.faq-more { text-align: center; color: var(--muted); font-size: 15.5px; margin-top: 26px; }
+.faq-more a { color: var(--text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
