@@ -251,7 +251,7 @@
       "lead.okTitle": "Done, {name}!",
       "lead.okText": "We've just messaged you at <strong>{phone}</strong>. Open WhatsApp on your phone.",
       "lead.okBtn": "Got it",
-      "lead.errName": "Tell us your name.",
+      "lead.errName": "Tell us your name (letters only).",
       "lead.errPhone": "Check the number (include the country code, e.g. +44).",
       "lead.errConsent": "We need your consent to message you.",
       "lead.errSend": "We couldn't send it. Try again or open WhatsApp directly.",
@@ -495,7 +495,7 @@
       "lead.okTitle": "Fet, {name}!",
       "lead.okText": "T'acabem d'escriure al <strong>{phone}</strong>. Obre WhatsApp al mòbil.",
       "lead.okBtn": "Entesos",
-      "lead.errName": "Digues-nos el teu nom.",
+      "lead.errName": "Digues-nos el teu nom (només lletres).",
       "lead.errPhone": "Revisa el número (amb el prefix del país si no és d'Espanya).",
       "lead.errConsent": "Necessitem el teu consentiment per escriure't.",
       "lead.errSend": "No s'ha pogut enviar. Torna-ho a provar o obre WhatsApp directament.",
@@ -1012,10 +1012,10 @@
   /* ---------- Formulario "te escribimos" (solo escritorio) ---------- */
   // En escritorio wa.me obliga a abrir WhatsApp Web/Desktop y ahí se cae mucha gente: los CTA
   // abren un modal (nombre + WhatsApp) y es el bot quien escribe primero con una plantilla de Meta.
-  // En móvil todo sigue igual (clic directo). Apagado mientras LEAD_ENDPOINT esté vacío;
-  // ?leadform=1 lo fuerza para probar (sin endpoint simula el envío).
+  // En móvil todo sigue igual (clic directo). Se apaga dejando LEAD_ENDPOINT vacío; con él
+  // vacío, ?leadform=1 lo fuerza para probar (simula el envío).
   (function () {
-    const LEAD_ENDPOINT = ''; // p. ej. 'https://tubot-whatsapp.vercel.app/api/lead' cuando exista en el bot
+    const LEAD_ENDPOINT = 'https://tubot-whatsapp.vercel.app/api/lead'; // /api/lead del bot (CORS: solo tubot.es)
     let preview = false;
     try { preview = new URLSearchParams(location.search).get('leadform') === '1'; } catch (e) {}
     if (!LEAD_ENDPOINT && !preview) return;
@@ -1037,7 +1037,7 @@
       'lead.okTitle': '¡Hecho, {name}!',
       'lead.okText': 'Te acabamos de escribir al <strong>{phone}</strong>. Abre WhatsApp en tu móvil.',
       'lead.okBtn': 'Entendido',
-      'lead.errName': 'Dinos tu nombre.',
+      'lead.errName': 'Dinos tu nombre (solo letras).',
       'lead.errPhone': 'Revisa el número (con prefijo de país si no es de España).',
       'lead.errConsent': 'Necesitamos tu consentimiento para escribirte.',
       'lead.errSend': 'No hemos podido enviarlo. Inténtalo de nuevo o abre WhatsApp directamente.',
@@ -1053,6 +1053,12 @@
       if (p.charAt(0) !== '+') p = /^[679]\d{8}$/.test(p) ? '+34' + p : '';
       return /^\+[1-9]\d{7,14}$/.test(p) ? p : null;
     }
+    // La primera palabra va a {{1}} de la plantilla y el bot solo acepta un nombre de pila
+    // (letras, apóstrofo o guion, 2–20). new RegExp y no literal: un navegador sin \p{L}
+    // rompería el script entero al parsearlo; sin regex valida solo el bot.
+    let NAME_RE = null;
+    try { NAME_RE = new RegExp("^\\p{L}[\\p{L}\\p{M}'’-]{1,19}$", 'u'); } catch (e) {}
+    const ERR_FIELD = { name: 'lead.errName', phone: 'lead.errPhone', consent: 'lead.errConsent' };
     function push(ev, extra) {
       const data = Object.assign({ language: LANG }, extra);
       window.dataLayer = window.dataLayer || [];
@@ -1137,7 +1143,7 @@
       e.stopPropagation();
       const name = form.elements.name.value.trim().replace(/\s+/g, ' ');
       const phone = normPhone(form.elements.phone.value);
-      if (name.length < 2) { err.textContent = L('lead.errName'); form.elements.name.focus(); return; }
+      if (name.length < 2 || (NAME_RE && !NAME_RE.test(name.split(' ')[0]))) { err.textContent = L('lead.errName'); form.elements.name.focus(); return; }
       if (!phone) { err.textContent = L('lead.errPhone'); form.elements.phone.focus(); return; }
       if (!form.elements.consent.checked) { err.textContent = L('lead.errConsent'); form.elements.consent.focus(); return; }
 
@@ -1145,6 +1151,11 @@
       const attribution = {};
       ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
         .forEach(k => { if (qs.get(k)) attribution[k] = qs.get(k); });
+      // Sin query en esta URL (llegó por un anuncio y cambió de página): queda el código de
+      // campaña que guardó el bloque "(ref:)" en sessionStorage.
+      if (!Object.keys(attribution).length) {
+        try { const ref = sessionStorage.getItem('tubot_ref'); if (ref) attribution.utm_campaign = ref; } catch (e2) {}
+      }
       const payload = {
         name: name, phone: phone, consent: true, language: LANG,
         reason: ctx.reason, intent: ctx.intent, cta_location: ctx.loc,
@@ -1156,7 +1167,15 @@
       submit.querySelector('span').textContent = L('lead.sending');
       const send = LEAD_ENDPOINT
         ? fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-            .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); })
+            .then(r => {
+              if (r.ok) return;
+              // 400 con "field": el bot no acepta ese campo y reintentar igual no sirve
+              return r.json().catch(() => ({})).then(j => {
+                const e2 = new Error('HTTP ' + r.status);
+                if (r.status === 400 && j) e2.field = j.field;
+                throw e2;
+              });
+            })
         : new Promise(res => setTimeout(res, 900)); // preview sin backend
 
       send.then(function () {
@@ -1172,8 +1191,10 @@
         form.reset();
         stepForm.hidden = true; stepOk.hidden = false;
         dlg.querySelector('.lead-ok-btn').focus();
-      }).catch(function () {
-        err.textContent = L('lead.errSend');
+      }).catch(function (e2) {
+        const field = e2 && ERR_FIELD[e2.field] ? e2.field : '';
+        err.textContent = L(field ? ERR_FIELD[field] : 'lead.errSend');
+        if (field) form.elements[field].focus();
         push('lead_form_error', { cta_location: ctx.loc });
       }).then(function () {
         submit.disabled = false;
