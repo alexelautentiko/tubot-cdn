@@ -207,23 +207,18 @@ h2.section-title {
 .cta-microcopy span { display: inline-flex; align-items: center; gap: 7px; }
 .cta-microcopy svg { width: 15px; height: 15px; color: var(--wa); }
 
-/* Pill "Nuevo": canal Instagram (etiqueta estatica, sin enlace) */
+/* Pill de canales: texto + logos (etiqueta estatica, sin enlace) */
 .hero-new {
   display: inline-flex; align-items: center; gap: 9px;
   margin-top: 18px;
-  padding: 6px 12px 6px 6px;
+  padding: 7px 14px;
   font-size: 14px; font-weight: 600; color: var(--text);
   border: 1px solid var(--border-2); border-radius: var(--r-pill);
   background: rgba(255,255,255,0.03);
 }
-.hero-new-tag {
-  display: inline-flex; align-items: center;
-  padding: 3px 9px; border-radius: var(--r-pill);
-  background: var(--grad); color: #fff;
-  font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-}
-.hero-new > svg { width: 16px; height: 16px; flex-shrink: 0; }
-.hero-new > span:not(.hero-new-tag) { text-wrap: balance; }
+.hero-new-logos { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.hero-new-logos img { width: 20px; height: 20px; display: block; }
+.hero-new > span:not(.hero-new-logos) { text-wrap: balance; }
 @media (max-width: 760px) { .hero-new { font-size: 13.5px; } }
 
 /* ============================================================
@@ -684,20 +679,6 @@ h2.section-title {
    PROCESOS (rejilla de transformación: antes → después)
    ============================================================ */
 .proc { background: var(--bg-2); }
-.proc-group {
-  display: flex; align-items: center; gap: 13px;
-  font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--soft);
-  margin: 42px 0 18px;
-}
-.proc-group:first-of-type { margin-top: 4px; }
-.proc-group::before {
-  content: ""; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--grad); flex-shrink: 0;
-}
-.proc-group::after {
-  content: ""; flex: 1; height: 1px; background: var(--border);
-}
 .proc-grid {
   list-style: none;
   display: grid;
@@ -706,8 +687,6 @@ h2.section-title {
 }
 @media (max-width: 920px) { .proc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .proc-grid { grid-template-columns: 1fr; } }
-/* grupo "Cuando escribes tú": 4 tarjetas en 2×2 en escritorio (en tablet/móvil hereda 2/1 cols) */
-@media (min-width: 921px) { .proc-grid-out { grid-template-columns: repeat(2, 1fr); } }
 .proc-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -742,22 +721,11 @@ h2.section-title {
   text-align: center; max-width: 680px; margin: 2px auto 34px;
   color: var(--muted); font-size: 16px; line-height: 1.55;
 }
-.proc-group.dir::before { display: none; }
-.proc-arr {
-  display: inline-grid; place-items: center; width: 22px; height: 22px; flex-shrink: 0;
-  background-image: linear-gradient(var(--bg-2), var(--bg-2)), var(--grad);
-  background-origin: border-box; background-clip: padding-box, border-box;
-  border: 1px solid transparent; border-radius: 7px;
-}
-.proc-arr svg { width: 14px; height: 14px; }
-.proc-group.in .proc-arr { color: var(--cyan); }
-.proc-group.out .proc-arr { color: #E5179B; }
 .proc-dir-note {
   display: flex; align-items: center; gap: 8px;
   margin: -8px 0 18px; font-size: 13px; font-weight: 600; color: var(--soft);
 }
 .proc-dir-note svg { width: 15px; height: 15px; color: #E5179B; flex-shrink: 0; }
-.proc-card.out .proc-ic svg { color: #E5179B; }
 .proc-note { margin-top: 32px; text-align: center; color: var(--muted); font-size: 15px; }
 .proc-note strong { color: var(--text); font-weight: 700; }
 .proc-cta { margin-top: 26px; text-align: center; }
@@ -950,6 +918,7 @@ h2.section-title {
 .obj { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: 22px 24px; }
 .obj h4 { font-size: 16.5px; font-weight: 700; margin-bottom: 7px; display: flex; gap: 9px; align-items: center; }
 .obj h4 svg { width: 18px; height: 18px; color: var(--cyan); }
+.obj h4:last-child { margin-bottom: 0; }
 .obj p { color: var(--muted); font-size: 14.5px; }
 
 /* ============================================================

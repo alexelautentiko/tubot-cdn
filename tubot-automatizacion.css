@@ -1,7 +1,7 @@
 /* ============================================================
    TUBOT — Landing "Automatización de WhatsApp a medida" (/automatizacion-whatsapp)
    Se carga DESPUÉS de tubot-landing.css y tubot-setter.css: hereda el hero centrado,
-   los pasos apilados, el bento, la comparativa y el bloque "pruébalo" del setter, y
+   los pasos, el bento, la comparativa y el bloque "pruébalo" del setter, y
    los paneles entrada → salida (.io-*) de la Home. Aquí solo va lo propio.
    ============================================================ */
 
@@ -26,16 +26,6 @@
 /* ---------- Dos planos: hacia fuera / hacia dentro (bento) ---------- */
 .bento-card.inward { border-color: rgba(22,171,240,0.35); }
 .bento-card.inward .proc-ic svg { color: var(--magenta); }
-.bv-chip {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 700; color: var(--text);
-  background: rgba(255,255,255,0.06); border: 1px solid var(--border);
-  padding: 5px 10px; border-radius: var(--r-pill);
-}
-.bv-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* ---------- Sectores (marquee de la Home) dentro de una sección propia ---------- */
 .sectors-sec .section-head { margin-bottom: 34px; }
-
-/* ---------- Precio: "lo que no pagas aparte" ---------- */
-.obj h4 svg.ok { color: var(--wa); }
