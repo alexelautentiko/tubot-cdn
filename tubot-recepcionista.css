@@ -1,0 +1,160 @@
+/* ============================================================
+   TUBOT — Landing "Recepcionista IA" (/recepcionista-ia)
+   Se carga DESPUÉS de tubot-landing.css y tubot-setter.css: hereda tokens, botones,
+   el móvil con chat, .bento, .stats-row, .faq-*, .final y .qr-card, y solo añade lo propio.
+   Sin JS propio: el chat del hero lo mueve tubot-setter.js (JSON inline #setterChat) y los
+   .stage-chip de "Acciones en directo" se encienden con su data-step.
+   ============================================================ */
+
+/* ============================================================
+   HERO (dos columnas: titular + móvil con acciones en directo)
+   ============================================================ */
+.rc-hero { padding: 56px 0 72px; }
+.rc-hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px;
+  align-items: center;
+}
+.rc-hero h1 { font-size: clamp(40px, 4.9vw, 62px); }
+.rc-hero h1 .serif-em { display: block; }
+.rc-hero .hero-sub { max-width: 30ch; }
+
+/* el escenario de los setters (chips | móvil | chips) pasa a móvil + una columna de acciones */
+.setter-stage.rc-stage {
+  grid-template-columns: auto 232px; gap: 22px;
+  max-width: none; margin: 0;
+}
+.setter-stage.rc-stage .hero-phone-wrap { grid-column: auto; order: 0; margin-bottom: 0; }
+.rc-stage .msg .photo { height: 86px; min-width: 190px; }
+.rc-actions { display: grid; gap: 10px; align-content: center; }
+.rc-actions .qr-live { margin-bottom: 4px; }
+.rc-actions .stage-chip { min-width: 0; padding: 12px 14px 12px 12px; }
+.rc-actions .stage-chip small { display: block; }
+@media (max-width: 1040px) {
+  .rc-hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .rc-hero .hero-copy { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .rc-hero .hero-sub { max-width: 40ch; }
+  .rc-hero .hero-actions { justify-content: center; }
+  .setter-stage.rc-stage { justify-content: center; }
+}
+@media (max-width: 640px) {
+  .rc-hero { padding: 36px 0 56px; }
+  /* cada frase del titular en su línea y la píldora de sectores sin partirse */
+  .rc-hero h1 { font-size: clamp(32px, 9vw, 40px); }
+  .rc-hero .eyebrow { font-size: 11.5px; letter-spacing: 0.06em; }
+  .setter-stage.rc-stage { grid-template-columns: 1fr; justify-items: center; gap: 18px; }
+  .rc-actions { width: 100%; max-width: 340px; }
+}
+
+/* ============================================================
+   CLIENTES (fila de logos, pegada al hero)
+   ============================================================ */
+.rc-logos { padding: 0 0 24px; }
+.rc-logo-row {
+  list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 22px 36px;
+}
+/* los logos son versiones en blanco (assets/cliente-*); cada uno trae su alto en --h */
+.rc-logo-row img { display: block; width: auto; height: var(--h, 28px); opacity: .7; transition: opacity .2s var(--ease); }
+.rc-logo-row li:hover img { opacity: 1; }
+@media (max-width: 600px) {
+  .rc-logo-row { gap: 18px 26px; }
+  .rc-logo-row img { height: calc(var(--h, 28px) * .82); }
+}
+
+/* ============================================================
+   CÓMO FUNCIONA (4 tarjetas: mini interfaz + título) + logos de integraciones
+   ============================================================ */
+.bento.rc-how { grid-template-columns: repeat(4, 1fr); }
+.rc-card { padding: 16px 16px 20px; }
+.rc-card .bento-vis { min-height: 148px; margin-bottom: 16px; }
+.rc-card h3 { padding: 0 4px; font-size: 18px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; }
+.rc-alert {
+  padding: 8px 10px; border-radius: 10px;
+  font-size: 12.5px; font-weight: 700; color: #FFD3E8;
+  background: rgba(229,23,155,0.12); border: 1px solid rgba(229,23,155,0.4);
+}
+.rc-intg { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.rc-intg li {
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--border);
+}
+.rc-intg img { width: 26px; height: 26px; object-fit: contain; display: block; }
+.rc-intg .more {
+  width: auto; padding: 0 16px; border-style: dashed;
+  font-size: 14px; font-weight: 700; color: var(--muted);
+}
+@media (max-width: 1040px) { .bento.rc-how { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  /* en el teléfono las tarjetas van en carrusel: se deslizan con el dedo */
+  .bento.rc-how, .rc-insights {
+    display: flex; gap: 12px;
+    margin: 0 -24px; padding: 0 24px 6px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  }
+  .bento.rc-how::-webkit-scrollbar, .rc-insights::-webkit-scrollbar { display: none; }
+  .rc-card { flex: 0 0 78%; scroll-snap-align: center; }
+}
+
+/* ============================================================
+   INTELIGENCIA DE NEGOCIO (el resumen mensual que recibe el dueño + 4 lecturas)
+   ============================================================ */
+.rc-bi {
+  display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 18px;
+  max-width: 1020px; margin: 0 auto;
+}
+.rc-report {
+  display: flex; flex-direction: column; gap: 14px; padding: 18px;
+  border: 1.5px solid transparent; border-radius: var(--r-lg);
+  background-image: linear-gradient(var(--surface), var(--surface)), var(--grad);
+  background-origin: border-box; background-clip: padding-box, border-box;
+  box-shadow: 0 34px 80px -34px rgba(147,51,234,0.5);
+}
+.rc-report-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 15px; font-weight: 800; }
+.rc-report-chat {
+  flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px;
+  padding: 12px; border-radius: var(--r-md); background: #0B141A;
+}
+.rc-report .msg { max-width: 100%; align-self: stretch; padding: 14px 14px 10px; font-size: 14px; }
+.rc-report-tit { display: block; margin-bottom: 8px; font-weight: 800; }
+.rc-kpi { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; border-top: 1px dashed rgba(255,255,255,0.1); }
+.rc-kpi b { min-width: 56px; font-size: 26px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
+/* botón de respuesta rápida de la plantilla de WhatsApp */
+.rc-reply { padding: 10px; border-radius: 9px; background: #1F2C34; color: #53BDEB; font-size: 14px; font-weight: 700; text-align: center; }
+.rc-insights { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.rc-insights .bento-vis { min-height: 152px; }
+/* barra de reparto: el ancho del relleno sale de --v (style en el HTML) */
+.rc-meter {
+  position: relative; overflow: hidden;
+  display: flex; justify-content: space-between; gap: 10px;
+  padding: 6px 10px; border-radius: 8px;
+  font-size: 13px; color: var(--text); background: rgba(255,255,255,0.04);
+}
+.rc-meter::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: var(--v); background: var(--grad); opacity: .34; }
+.rc-meter > * { position: relative; }
+.rc-meter b { font-weight: 800; }
+@media (max-width: 900px) { .rc-bi { grid-template-columns: 1fr; max-width: 560px; } }
+
+/* ============================================================
+   RESULTADOS (3 cifras)
+   ============================================================ */
+.stats-row.rc-results { grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto; }
+.rc-results .stat { padding: 30px 20px; text-align: center; }
+.rc-results .stat .n { font-size: clamp(40px, 5.4vw, 64px); }
+.rc-results .stat .l { font-size: 16px; }
+@media (max-width: 760px) { .stats-row.rc-results { grid-template-columns: 1fr; max-width: 360px; } }
+
+/* ============================================================
+   CTA FINAL (titular + botón, con el QR al lado en escritorio)
+   ============================================================ */
+.rc-final {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px;
+  align-items: center; text-align: left;
+  max-width: 880px; margin: 0 auto;
+}
+.final .rc-final h2 { margin: 0 0 30px; max-width: 15ch; }
+@media (max-width: 760px) {
+  .rc-final { grid-template-columns: 1fr; text-align: center; }
+  .final .rc-final h2 { margin: 0 auto 26px; }
+  .rc-final .qr-card { display: none; } /* en el móvil un QR no se puede escanear: queda el botón */
+}
