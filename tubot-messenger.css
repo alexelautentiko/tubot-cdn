@@ -1,0 +1,24 @@
+/* ============================================================
+   TUBOT — Landing "Setter IA para Messenger" (/setter-messenger)
+   Se carga DESPUÉS de tubot-landing.css y tubot-setter.css: hereda toda la
+   maqueta del setter y solo cambia lo propio del canal (hilo de Messenger).
+   Los CTA son los de WhatsApp de siempre (.btn-wa, .wa-float): Lara atiende ahí.
+   ============================================================ */
+
+/* ---------- Hilo de Messenger (modo oscuro): se aplica con la clase .ms ---------- */
+/* el reproductor de tubot-setter.js pinta .msg.in/.out, .typing y .ia-badge: aquí solo cambian colores y radios */
+.phone.ms .wa-header { background: #000; border-bottom: 1px solid #262626; }
+.phone.ms .wa-header .meta .st { color: #A8A8A8; }
+.phone.ms .wa-header .ico { color: #0A7CFF; } /* llamada y vídeo van en el azul del hilo */
+.phone.ms .wa-body, .io-chat.ms, .bento-vis.ms { background-color: #000; background-image: none; }
+.ms .msg { border-radius: 18px; font-size: 13.5px; }
+.ms .msg.in { background: #303030; color: #F5F5F5; border-top-left-radius: 18px; }
+.ms .msg.out { background: linear-gradient(180deg, #00B2FF, #006AFF); color: #fff; border-top-right-radius: 18px; }
+.ms .msg .time { display: none; } /* Messenger no muestra hora ni ticks en cada burbuja */
+.ms .typing { background: #303030; border-radius: 18px; }
+.ms .msg .audio .play { background: rgba(255,255,255,0.18); }
+.ms .msg .audio .wave { background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.55) 0 2px, transparent 2px 5px); }
+.ms .ia-badge { color: #7CC4FF; background: rgba(0,132,255,0.14); border-color: rgba(0,132,255,0.4); }
+
+/* "Sin setter" / "Con Tubot": la píldora de la cabecera en el azul de Messenger */
+.io-pill.ms { background: linear-gradient(115deg, #00B2FF, #006AFF); color: #fff; }
