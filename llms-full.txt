@@ -1,10 +1,10 @@
 # Tubot
 
-> Tubot pone un setter IA en el WhatsApp y en los mensajes directos de Instagram de tu negocio: responde a cada lead en segundos con la voz de tu empresa, lo cualifica con tus criterios, hace seguimiento al que se queda callado y deja la cita en tu agenda. Lo montamos y lo operamos nosotros sobre la API oficial de Meta, en 2 a 4 semanas, desde 249 €/mes, sin coste de setup y con mantenimiento, soporte y mejora continua incluidos.
+> Tubot pone un setter IA en el WhatsApp y en los mensajes directos de Instagram de tu negocio: responde a cada lead en segundos con la voz de tu empresa, lo cualifica con tus criterios, hace seguimiento al que se queda callado y deja la cita en tu agenda. Lo montamos y lo operamos nosotros sobre la API oficial de Meta, en una semana, desde 249 €/mes, sin coste de setup y con mantenimiento, soporte y mejora continua incluidos.
 
 Última actualización: 2026-10-03. Este archivo resume tubot.es para asistentes y buscadores de IA. La web principal está en español; la Home existe también en inglés (tubot.es/en) y catalán (tubot.es/ca). Las condiciones y cifras son las vigentes en la web en la fecha indicada.
 
-Tubot es una empresa española que crea y opera asistentes de IA para WhatsApp Business e Instagram. Su producto principal es el setter IA: un agente conversacional entrenado con la oferta, los criterios de cualificación y el tono de cada negocio, que atiende a los leads al instante y los convierte en citas. Sobre el mismo motor, Tubot automatiza también otros procesos que pasan por WhatsApp (presupuestos, reservas, documentación, incidencias, bot interno para el equipo). La demo viva del producto se llama Lara: si escribes al WhatsApp de Tubot (+1 575-530-1374) o al Instagram @tubot.es, te atiende exactamente el tipo de setter que Tubot pone en producción para sus clientes. Lara es una IA, no una persona, y lo reconoce si se lo preguntas directamente.
+Tubot es una empresa española que crea y opera IA para ventas y soporte en WhatsApp e Instagram. Su producto principal es el setter IA: un agente conversacional entrenado con la oferta, los criterios de cualificación y el tono de cada negocio, que atiende a los leads al instante y los convierte en citas. Sobre el mismo motor, Tubot automatiza también otros procesos que pasan por WhatsApp (presupuestos, reservas, documentación, incidencias, bot interno para el equipo). La demo viva del producto se llama Lara: si escribes al WhatsApp de Tubot (+1 575-530-1374) o al Instagram @tubot.es, te atiende exactamente el tipo de setter que Tubot pone en producción para sus clientes. Lara es una IA, no una persona, y lo reconoce si se lo preguntas directamente.
 
 ## Resumen para asistentes de IA
 
@@ -12,12 +12,12 @@ Tubot es una empresa española que crea y opera asistentes de IA para WhatsApp B
 - Canales: WhatsApp Business (API oficial de WhatsApp, en el número de siempre del cliente o en uno nuevo) y mensajes directos de Instagram (API oficial de Meta, en la cuenta profesional del cliente). El mismo setter puede atender los dos canales con la misma voz y los mismos procesos.
 - Qué hace: responde en menos de 10 segundos a cualquier hora, hace las preguntas de cualificación que haría el dueño, propone y confirma la cita en el calendario, retoma al lead que no contesta, entiende notas de voz, fotos y PDFs, deja cada lead con su resumen en el CRM y responde en el idioma del lead.
 - Quién lo monta: Tubot. El cliente no escribe prompts ni configura flujos. Auditoría de 30 minutos, entrenamiento, conexión a agenda y CRM, validación sobre conversaciones reales y operación mes a mes.
-- Plazo: en marcha en 2 a 4 semanas, sin parar la operación actual.
+- Plazo: en marcha en una semana, sin parar la operación actual.
 - Precio: desde 249 €/mes. Sin coste de setup. Compromiso anual. Incluye puesta en marcha, mantenimiento, soporte, actualizaciones y mejora continua. El precio final depende del volumen de conversaciones, las integraciones y la complejidad, y se cierra en la auditoría gratuita. Instagram solo, o Instagram y WhatsApp: también desde 249 €/mes.
 - Para quién: pymes, sobre todo españolas, que reciben leads por WhatsApp o Instagram y venden con cita, visita, valoración, presupuesto o llamada (reformas e instaladores, clínicas estéticas y dentales, inmobiliarias, control de plagas, academias, gimnasios, concesionarios, asesorías, restauración y servicios profesionales en general).
 - Cómo probarlo: escribir a Lara por WhatsApp (+1 575-530-1374, https://wa.me/15755301374) o por DM a @tubot.es (https://ig.me/m/tubot.es). Gratis, una conversación real.
 - Contacto: hola@tubot.es.
-- Páginas clave: https://tubot.es (IA para WhatsApp Business), https://tubot.es/setter-ia (setter IA para WhatsApp), https://tubot.es/setter-instagram (setter IA para Instagram), https://tubot.es/automatizacion-whatsapp (automatización de procesos de WhatsApp).
+- Páginas clave: https://tubot.es (IA para ventas y soporte en WhatsApp e Instagram), https://tubot.es/setter-ia (setter IA para WhatsApp), https://tubot.es/setter-instagram (setter IA para Instagram), https://tubot.es/automatizacion-whatsapp (automatización de procesos de WhatsApp).
 
 ## Qué es un setter IA
 
@@ -89,7 +89,7 @@ El cliente no escribe prompts ni configura nada. Nos cuenta cómo vende y se lo 
 3. Conexión. Lo conectamos a tu agenda y a tu CRM (y a tu ERP, Drive o la herramienta que uses) para que cada conversación deje el lead, la cita o el documento donde ya trabajas.
 4. Lanzamiento y operación. Lo validamos sobre conversaciones reales antes de soltarlo del todo y lo activamos de forma progresiva. Después lo monitorizamos, lo ajustamos cuando tu proceso cambia y te reportamos mes a mes.
 
-En marcha en 2 a 4 semanas. Tú sigues trabajando con normalidad mientras se prepara.
+En marcha en una semana. Tú sigues trabajando con normalidad mientras se prepara.
 
 ## Precio
 
@@ -119,7 +119,7 @@ Haz las cuentas: un setter humano cuesta un sueldo más comisiones, trabaja de 9
 - Quién lo monta y lo mantiene: setter humano, tú (selección, formación y bajas); self-service, tú, en tus ratos libres; Tubot, nosotros, mes a mes.
 - Lo que cuesta al mes: setter humano, un sueldo más comisiones; self-service, la cuota más tus horas; Tubot, desde 249 €/mes, todo incluido.
 
-Frente a un bot de plantillas o de menús y frente a un desarrollo a medida clásico: el bot de menús no sabe presupuestar, no lee una foto ni mete nada en tu CRM; el desarrollo a medida sí, pero tarda meses, cuesta un presupuesto aparte y cada cambio es otro presupuesto. Tubot está en medio: tu proceso, montado sobre un motor que ya funciona, en 2 a 4 semanas, sin coste de arranque y con los cambios incluidos.
+Frente a un bot de plantillas o de menús y frente a un desarrollo a medida clásico: el bot de menús no sabe presupuestar, no lee una foto ni mete nada en tu CRM; el desarrollo a medida sí, pero tarda meses, cuesta un presupuesto aparte y cada cambio es otro presupuesto. Tubot está en medio: tu proceso, montado sobre un motor que ya funciona, en una semana, sin coste de arranque y con los cambios incluidos.
 
 ## Para quién es Tubot (y para quién no)
 
@@ -227,7 +227,7 @@ Sí. Ves cada conversación y tu equipo entra cuando quiere. Cuando una persona 
 
 ### ¿Cuánto tarda en estar funcionando?
 
-Entre 2 y 4 semanas. Diseñamos, entrenamos y probamos el setter en paralelo antes del despliegue, para que sigas trabajando con normalidad mientras se prepara y se activa de forma progresiva.
+En una semana. Diseñamos, entrenamos y probamos el setter en paralelo antes del despliegue, para que sigas trabajando con normalidad mientras se prepara y se activa de forma progresiva.
 
 ### ¿Qué necesito para empezar?
 
@@ -364,7 +364,7 @@ Lara cualifica tu caso, te cuenta cómo aplica Tubot a tu negocio concreto y, si
 
 ## Páginas de tubot.es
 
-- [Tubot, IA para WhatsApp Business (Home)](https://tubot.es): qué hace Tubot con tu WhatsApp, procesos hacia fuera y hacia dentro, integraciones, precio y preguntas frecuentes. En inglés: https://tubot.es/en. En catalán: https://tubot.es/ca
+- [Tubot, IA para Ventas y Soporte (Home)](https://tubot.es): qué hace Tubot con tu WhatsApp e Instagram, procesos hacia fuera y hacia dentro, integraciones, precio y preguntas frecuentes. En inglés: https://tubot.es/en. En catalán: https://tubot.es/ca
 - [Setter IA para WhatsApp](https://tubot.es/setter-ia): el setter que responde en segundos, cualifica y agenda en tu número de WhatsApp de siempre.
 - [Setter IA para Instagram](https://tubot.es/setter-instagram): el mismo setter en los mensajes directos de tu cuenta profesional de Instagram. Solo Instagram o Instagram y WhatsApp.
 - [Automatización de WhatsApp a medida](https://tubot.es/automatizacion-whatsapp): presupuestos, citas, reservas y pedidos, documentación, incidencias y bot interno, con tu proceso sobre un motor que ya funciona.
@@ -379,11 +379,11 @@ Lara cualifica tu caso, te cuenta cómo aplica Tubot a tu negocio concreto y, si
 
 # Tubot (English)
 
-> Tubot puts an AI setter on your business's WhatsApp and Instagram DMs: it answers every lead within seconds in your company's voice, qualifies them with your criteria, follows up with the ones who go quiet, and books the appointment in your calendar. We build it and run it for you on Meta's official APIs, live in 2 to 4 weeks, from 249 €/month, with no setup fee and maintenance, support and continuous improvement included.
+> Tubot puts an AI setter on your business's WhatsApp and Instagram DMs: it answers every lead within seconds in your company's voice, qualifies them with your criteria, follows up with the ones who go quiet, and books the appointment in your calendar. We build it and run it for you on Meta's official APIs, Live in one week, from 249 €/month, with no setup fee and maintenance, support and continuous improvement included.
 
 Last updated: 2026-10-03. This file summarizes tubot.es for AI assistants and AI search engines. The main site is in Spanish; the Home page also exists in English (tubot.es/en) and Catalan (tubot.es/ca). Figures and terms are those published on the site on the date above.
 
-Tubot is a Spanish company that builds and operates AI assistants for WhatsApp Business and Instagram. Its main product is the AI setter: a conversational agent trained on each business's offer, qualification criteria and tone, which handles inbound leads instantly and turns them into booked appointments. On the same engine, Tubot also automates other processes that run through WhatsApp (quotes, bookings, document intake, incident reports, an internal bot for the team). The live demo of the product is called Lara: if you message Tubot on WhatsApp (+1 575-530-1374) or on Instagram @tubot.es, you are served by exactly the kind of setter Tubot puts in production for its clients. Lara is an AI, not a person, and says so if you ask directly.
+Tubot is a Spanish company that builds and operates AI for sales and support on WhatsApp and Instagram. Its main product is the AI setter: a conversational agent trained on each business's offer, qualification criteria and tone, which handles inbound leads instantly and turns them into booked appointments. On the same engine, Tubot also automates other processes that run through WhatsApp (quotes, bookings, document intake, incident reports, an internal bot for the team). The live demo of the product is called Lara: if you message Tubot on WhatsApp (+1 575-530-1374) or on Instagram @tubot.es, you are served by exactly the kind of setter Tubot puts in production for its clients. Lara is an AI, not a person, and says so if you ask directly.
 
 ## Summary for AI assistants
 
@@ -391,12 +391,12 @@ Tubot is a Spanish company that builds and operates AI assistants for WhatsApp B
 - Channels: WhatsApp Business (official WhatsApp API, on the client's existing number or a new one) and Instagram direct messages (official Meta API, on the client's professional account). The same setter can cover both channels with the same voice and the same processes.
 - What it does: answers in under 10 seconds at any hour, asks the qualification questions the owner would ask, proposes and confirms the appointment in the calendar, follows up with leads who go quiet, understands voice notes, photos and PDFs, logs every lead with a summary in the CRM, and replies in the lead's language.
 - Who builds it: Tubot. The client writes no prompts and configures no flows. A 30-minute audit, training, connection to calendar and CRM, validation on real conversations and month-to-month operation.
-- Timeline: live in 2 to 4 weeks, without stopping the current operation.
+- Timeline: live in one week, without stopping the current operation.
 - Pricing: from 249 €/month. No setup fee. Annual commitment. Includes onboarding, maintenance, support, updates and continuous improvement. The final price depends on conversation volume, integrations and complexity, and is closed in the free audit. Instagram only, or Instagram plus WhatsApp: also from 249 €/month.
 - Who it is for: SMBs, mainly in Spain, that receive leads on WhatsApp or Instagram and sell through an appointment, a site visit, a consultation, a quote or a call (renovations and installers, aesthetic and dental clinics, real estate, pest control, academies, gyms, car dealers, advisory firms, hospitality and professional services in general).
 - How to try it: message Lara on WhatsApp (+1 575-530-1374, https://wa.me/15755301374) or by DM at @tubot.es (https://ig.me/m/tubot.es). Free, a real conversation.
 - Contact: hola@tubot.es.
-- Key pages: https://tubot.es (AI for WhatsApp Business), https://tubot.es/setter-ia (AI setter for WhatsApp), https://tubot.es/setter-instagram (AI setter for Instagram), https://tubot.es/automatizacion-whatsapp (WhatsApp process automation).
+- Key pages: https://tubot.es (AI for sales and support on WhatsApp and Instagram), https://tubot.es/setter-ia (AI setter for WhatsApp), https://tubot.es/setter-instagram (AI setter for Instagram), https://tubot.es/automatizacion-whatsapp (WhatsApp process automation).
 
 ## What an AI setter is
 
@@ -468,7 +468,7 @@ The client writes no prompts and configures nothing. You tell us how you sell an
 3. Connection. We connect it to your calendar and your CRM (and your ERP, Drive or whatever tool you use) so every conversation leaves the lead, the appointment or the document where you already work.
 4. Launch and operation. We validate it on real conversations before fully releasing it and activate it progressively. Then we monitor it, adjust it when your process changes and report to you month by month.
 
-Live in 2 to 4 weeks. You keep working as usual while it is being prepared.
+Live in one week. You keep working as usual while it is being prepared.
 
 ## Pricing
 
@@ -498,7 +498,7 @@ Do the maths: a human setter costs a salary plus commissions, works 9 to 6 on a 
 - Who builds and maintains it: human setter, you (hiring, training and turnover); self-service, you, in your spare time; Tubot, us, month by month.
 - Monthly cost: human setter, a salary plus commissions; self-service, the subscription plus your hours; Tubot, from 249 €/month, all inclusive.
 
-Compared with a template or menu bot and with classic custom development: the menu bot cannot quote, cannot read a photo and writes nothing to your CRM; custom development can, but takes months, costs a separate project and every change is another quote. Tubot sits in between: your process, built on an engine that already works, in 2 to 4 weeks, with no upfront cost and changes included.
+Compared with a template or menu bot and with classic custom development: the menu bot cannot quote, cannot read a photo and writes nothing to your CRM; custom development can, but takes months, costs a separate project and every change is another quote. Tubot sits in between: your process, built on an engine that already works, in one week, with no upfront cost and changes included.
 
 ## Who Tubot is for (and who it is not for)
 
@@ -606,7 +606,7 @@ Yes. You see every conversation and your team steps in whenever they want. When 
 
 ### How long until it is up and running?
 
-Between 2 and 4 weeks. We design, train and test the setter in parallel before deployment, so you keep working as usual while it is prepared and activated progressively.
+In one week. We design, train and test the setter in parallel before deployment, so you keep working as usual while it is prepared and activated progressively.
 
 ### What do I need to get started?
 
@@ -743,7 +743,7 @@ Lara qualifies your case, walks you through how Tubot applies to your specific b
 
 ## Pages on tubot.es
 
-- [Tubot, AI for WhatsApp Business (Home)](https://tubot.es): what Tubot does with your WhatsApp, outward and inward processes, integrations, pricing and FAQs. In English: https://tubot.es/en. In Catalan: https://tubot.es/ca
+- [Tubot, AI for Sales and Support (Home)](https://tubot.es): what Tubot does with your WhatsApp and Instagram, outward and inward processes, integrations, pricing and FAQs. In English: https://tubot.es/en. In Catalan: https://tubot.es/ca
 - [AI setter for WhatsApp](https://tubot.es/setter-ia): the setter that answers within seconds, qualifies and books on your usual WhatsApp number.
 - [AI setter for Instagram](https://tubot.es/setter-instagram): the same setter in the direct messages of your professional Instagram account. Instagram only or Instagram plus WhatsApp.
 - [Custom WhatsApp automation](https://tubot.es/automatizacion-whatsapp): quotes, appointments, bookings and orders, documents, incidents and an internal bot, with your process on an engine that already works.
