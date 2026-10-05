@@ -35,6 +35,14 @@
    CÓMO FUNCIONA (programas de gestión del sector + botón centrado bajo las tarjetas)
    ============================================================ */
 .cl-progs { gap: 18px 40px; }
+/* los calendarios van como icono en color dentro de una ficha; los programas, como logotipo en blanco */
+.cl-progs .tile {
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--border);
+}
+.cl-progs .tile img { width: 26px; height: 26px; object-fit: contain; opacity: 1; }
+.cl-progs .tile + .tile { margin-left: -22px; }
 .cl-progs .more {
   padding: 9px 16px; border: 1px dashed var(--border-2); border-radius: var(--r-pill);
   font-size: 14px; font-weight: 700; color: var(--muted);
