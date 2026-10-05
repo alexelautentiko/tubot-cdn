@@ -26,10 +26,31 @@
 .cl-note { margin-top: 16px; font-size: 14.5px; color: var(--muted); }
 
 /* ============================================================
-   PRUEBA (las tres cifras van bajo los logos, en la misma franja)
+   RESULTADOS (bajo los logos: una tarjeta con dos cifras y la frase, y otra con la tercera cifra)
    ============================================================ */
 .rc-logos.cl-proof { padding-bottom: 40px; }
-.cl-proof .rc-results { margin-top: 48px; }
+.cl-cases { display: grid; gap: 16px; max-width: 980px; margin: 48px auto 0; text-align: left; }
+.cl-case { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 30px 34px; }
+.cl-case-main { display: grid; grid-template-columns: 1.3fr 1fr; }
+.cl-case-a { padding-right: 34px; }
+.cl-case-b { padding-left: 34px; border-left: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
+.cl-big { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+.cl-num { font-size: clamp(60px, 7vw, 92px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+.cl-num.sm { font-size: clamp(46px, 5vw, 62px); }
+.cl-lbl { font-size: 19px; font-weight: 700; line-height: 1.3; max-width: 14ch; }
+.cl-quote { font-size: 16.5px; line-height: 1.5; color: var(--text); }
+.cl-desc { font-size: 17px; margin-top: 10px; }
+.cl-desc span { color: var(--muted); }
+.cl-who { display: inline-block; margin-top: 4px; font-size: 14px; font-weight: 800; }
+.cl-case-row { display: flex; align-items: center; gap: 28px; }
+.cl-case-row .cl-desc { margin-top: 0; }
+@media (max-width: 760px) {
+  .cl-case { padding: 24px; }
+  .cl-case-main { grid-template-columns: 1fr; }
+  .cl-case-a { padding-right: 0; }
+  .cl-case-b { padding: 22px 0 0; margin-top: 22px; border-left: 0; border-top: 1px solid var(--border); }
+  .cl-case-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
 
 /* ============================================================
    CÓMO FUNCIONA (programas de gestión del sector + botón centrado bajo las tarjetas)
