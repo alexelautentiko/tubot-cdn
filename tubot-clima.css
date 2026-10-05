@@ -1,0 +1,60 @@
+/* ============================================================
+   TUBOT · Landing "Recepcionista IA para climatización" (/recepcionista-ia-climatizacion)
+   Variante de sector de /recepcionista-ia. Se carga DESPUÉS de tubot-landing.css,
+   tubot-setter.css y tubot-recepcionista.css: hereda todo y solo añade lo propio (prefijo cl-).
+   Sin JS propio: el chat del hero lo mueve tubot-setter.js (JSON inline #setterChat).
+   ============================================================ */
+
+/* ============================================================
+   HERO (el subtítulo es una frase completa: más ancho que en la página general)
+   ============================================================ */
+.cl-hero .hero-sub { max-width: 38ch; }
+
+/* titular con frase rotativa (la mueve el rotador de tubot-landing.js): la frase va en su propio
+   bloque, puede partirse en dos líneas y reserva siempre ese alto para que nada salte al cambiar */
+.cl-hero h1 .rotator { display: block; white-space: normal; min-height: 0; }
+.cl-hero h1 .rotator-word { white-space: normal; line-height: 1.12; padding-bottom: 0.08em; min-height: 2.32em; }
+/* de 560 a 1040 px el titular va a todo el ancho y cada frase cabe en una línea */
+@media (min-width: 560px) and (max-width: 1040px) { .cl-hero h1 .rotator-word { min-height: 1.2em; } }
+/* recién pasado a dos columnas la del titular es estrecha: con el tamaño normal alguna frase pedía tres líneas */
+@media (min-width: 1041px) and (max-width: 1099px) { .cl-hero h1 { font-size: 44px; } }
+
+/* la foto de la caldera es una imagen real: más alta que el marcador de la página general */
+.cl-hero .rc-stage .msg .photo { height: 124px; min-width: 206px; }
+
+/* línea bajo cada botón: quién contesta al otro lado (Lara, la IA de Tubot) */
+.cl-note { margin-top: 16px; font-size: 14.5px; color: var(--muted); }
+
+/* ============================================================
+   PRUEBA (las tres cifras van bajo los logos, en la misma franja)
+   ============================================================ */
+.rc-logos.cl-proof { padding-bottom: 40px; }
+.cl-proof .rc-results { margin-top: 48px; }
+
+/* ============================================================
+   CÓMO FUNCIONA (programas de gestión del sector + botón centrado bajo las tarjetas)
+   ============================================================ */
+.cl-progs { gap: 18px 40px; }
+.cl-progs .more {
+  padding: 9px 16px; border: 1px dashed var(--border-2); border-radius: var(--r-pill);
+  font-size: 14px; font-weight: 700; color: var(--muted);
+}
+.cl-cta { margin-top: 44px; text-align: center; }
+
+/* ============================================================
+   CIFRAS DEL NEGOCIO (resumen + dos lecturas: la mini interfaz llena la tarjeta y el título queda abajo)
+   ============================================================ */
+.cl-bi .rc-card { display: flex; flex-direction: column; }
+.cl-bi .rc-card .bento-vis { flex: 1; }
+/* en el teléfono, carrusel como las tarjetas de "Cómo funciona" (la rejilla base de .rc-insights lo pisaba) */
+@media (max-width: 600px) { .cl-bi .rc-insights { display: flex; } }
+
+/* ============================================================
+   CTA FINAL (titular + una línea + botón, con el QR al lado en escritorio)
+   ============================================================ */
+.final .cl-final h2 { margin-bottom: 16px; }
+.final .cl-final h2 .serif-em { display: block; } /* "la IA de Tubot." entera en su línea */
+.final .cl-final .cl-lead { margin: 0 0 30px; max-width: 33ch; }
+@media (max-width: 760px) {
+  .final .cl-final .cl-lead { margin: 0 auto 26px; }
+}
