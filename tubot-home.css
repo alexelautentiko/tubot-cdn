@@ -1,0 +1,65 @@
+/* ============================================================
+   TUBOT · Home "Agente de IA" (index.html)
+   Se carga DESPUÉS de tubot-landing.css, tubot-setter.css, tubot-recepcionista.css y
+   tubot-clima.css: hereda el hero con móvil y acciones, las tarjetas, el resumen y el
+   cierre de las landings de sector, y solo añade lo propio (prefijo hm-).
+   El selector de sector lo mueve tubot-home.js.
+   ============================================================ */
+
+/* ============================================================
+   HERO (titular + columna de demo: selector de sector, móvil y acciones)
+   ============================================================ */
+.hm-hero .hero-sub { max-width: 40ch; }
+.hm-demo { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+
+/* ============================================================
+   SELECTOR DE SECTOR (pastillas del hero, los doce a la vista)
+   ============================================================ */
+.hm-pick { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 26px; }
+.hm-pick-label {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--soft);
+}
+.hm-sectors { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.hm-sector {
+  font-family: var(--font); font-size: 14px; font-weight: 700; line-height: 1;
+  color: var(--muted);
+  padding: 9px 15px;
+  background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.hm-sector:hover { color: var(--text); border-color: var(--border-2); transform: translateY(-1px); }
+.hm-sector:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.hm-sector.active {
+  color: var(--text);
+  border-color: transparent;
+  background-image: linear-gradient(var(--surface-2), var(--surface-2)), var(--grad);
+  background-origin: border-box; background-clip: padding-box, border-box;
+}
+.hm-sectors { max-width: 560px; }
+
+/* ============================================================
+   CÓMO FUNCIONA (5 tarjetas: tres arriba y dos centradas debajo)
+   ============================================================ */
+.bento.rc-how.hm-how { grid-template-columns: repeat(6, 1fr); }
+.hm-how > li { grid-column: span 2; }
+.hm-how > li:nth-child(4) { grid-column: 2 / span 2; }
+.hm-how > li:nth-child(5) { grid-column: 4 / span 2; }
+@media (max-width: 1040px) {
+  .bento.rc-how.hm-how { grid-template-columns: repeat(2, 1fr); }
+  .hm-how > li, .hm-how > li:nth-child(4) { grid-column: auto; }
+  .hm-how > li:nth-child(5) { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .hm-demo { width: 100%; }
+  .hm-pick { margin-bottom: 22px; }
+  .hm-sector { font-size: 13.5px; padding: 9px 13px; }
+}
+
+/* ============================================================
+   CIFRAS DEL NEGOCIO (el subtítulo cambia con el sector: una línea en escritorio, repartido en el móvil)
+   ============================================================ */
+.section-sub[data-sx="bi.sub"] { max-width: 74ch; text-wrap: balance; }
