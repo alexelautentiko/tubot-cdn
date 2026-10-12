@@ -1,5 +1,5 @@
 /* ============================================================
-   TUBOT · Home "Agente de IA" (index.html)
+   TUBOT · Home "Empleado digital" (index.html)
    Se carga DESPUÉS de tubot-landing.css, tubot-setter.css, tubot-recepcionista.css y
    tubot-clima.css: hereda el hero con móvil y acciones, las tarjetas, el resumen y el
    cierre de las landings de sector, y solo añade lo propio (prefijo hm-).
@@ -10,6 +10,15 @@
    HERO (titular + columna de demo: selector de sector, móvil y acciones)
    ============================================================ */
 .hm-hero .hero-sub { max-width: 40ch; }
+/* "Tu nuevo empleado" fijo y el verbo debajo: todos caben en una línea, así que se reserva una sola
+   (tubot-clima.css reserva dos para sus frases largas); si se alarga un verbo, comprobar el alto del h1 */
+.hm-hero h1 .rotator-word { min-height: 1.2em; }
+/* titular más grande que en las landings de sector, sobre todo en el móvil. Tope: el verbo más ancho
+   ("chases payments.", 6,7 veces el tamaño del h1 contando la cursiva al 110 %) cabe en una línea
+   en el ancho de la columna del titular: móvil ~100vw-63px, 1041-1219 px ~100vw-685px, después 510px */
+.hm-hero h1 { font-size: clamp(44px, calc(14.7vw - 102px), 74px); }
+@media (max-width: 1040px) { .hm-hero h1 { font-size: clamp(48px, 9.5vw, 72px); } }
+@media (max-width: 640px) { .hm-hero h1 { font-size: clamp(36px, calc(14.7vw - 9px), 56px); line-height: 1.02; } }
 .hm-demo { display: flex; flex-direction: column; align-items: center; min-width: 0; }
 
 /* ============================================================
@@ -63,3 +72,15 @@
    CIFRAS DEL NEGOCIO (el subtítulo cambia con el sector: una línea en escritorio, repartido en el móvil)
    ============================================================ */
 .section-sub[data-sx="bi.sub"] { max-width: 74ch; text-wrap: balance; }
+
+/* ============================================================
+   CLIENTES (cifras de clientes encima de la tarjeta con la frase: euros, fuera de horario, consultas)
+   ============================================================ */
+.hm-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 980px; margin: 48px auto 16px; text-align: left; }
+.hm-kpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 26px 30px; }
+.hm-kpis + .cl-cases { margin-top: 0; }
+.hm-who { max-width: 980px; margin: 14px auto 0; text-align: center; }
+@media (max-width: 760px) {
+  .hm-kpis { grid-template-columns: 1fr; }
+  .hm-kpi { padding: 22px 24px; }
+}
