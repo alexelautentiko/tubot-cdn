@@ -76,7 +76,11 @@
         'bi.m3': 'Pérdida de presión', 'bi.p3': '21%',
         'bi.z1': 'Getafe', 'bi.t1': '44 clientes',
         'bi.z2': 'Leganés', 'bi.t2': '31 clientes',
-        'bi.t3': '17 clientes'
+        'bi.t3': '17 clientes',
+        'bi.q1': '36%', 'bi.q2': '29%', 'bi.r3': 'Agenda llena', 'bi.q3': '19%',
+        'bi.a1': 'Google · averías de caldera', 'bi.v1': '34 visitas',
+        'bi.a2': 'Instagram · aire acondicionado', 'bi.v2': '13 visitas',
+        'bi.a3': 'Facebook · calderas nuevas', 'bi.v3': '9 visitas'
       }
     },
     limpieza: {
@@ -112,7 +116,11 @@
         'bi.m3': 'Cristales', 'bi.p3': '14%',
         'bi.z1': 'Alcobendas', 'bi.t1': '36 clientes',
         'bi.z2': 'Tres Cantos', 'bi.t2': '22 clientes',
-        'bi.t3': '15 clientes'
+        'bi.t3': '15 clientes',
+        'bi.q1': '44%', 'bi.q2': '26%', 'bi.r3': 'Agenda llena', 'bi.q3': '15%',
+        'bi.a1': 'Google · limpieza a fondo', 'bi.v1': '27 limpiezas',
+        'bi.a2': 'Instagram · fin de obra', 'bi.v2': '11 limpiezas',
+        'bi.a3': 'Facebook · cristales', 'bi.v3': '6 limpiezas'
       }
     },
     fontaneria: {
@@ -150,7 +158,11 @@
         'bi.m3': 'Termos', 'bi.p3': '17%',
         'bi.z1': 'Leganés', 'bi.t1': '38 clientes',
         'bi.z2': 'Getafe', 'bi.t2': '27 clientes',
-        'bi.t3': '21 clientes'
+        'bi.t3': '21 clientes',
+        'bi.q1': '35%', 'bi.q2': '30%', 'bi.q3': '17%',
+        'bi.a1': 'Google · fugas de agua', 'bi.v1': '33 visitas',
+        'bi.a2': 'Instagram · desatascos', 'bi.v2': '12 visitas',
+        'bi.a3': 'Facebook · termos', 'bi.v3': '7 visitas'
       }
     },
     electricidad: {
@@ -186,7 +198,11 @@
         'bi.m3': 'Cuadro eléctrico', 'bi.p3': '19%',
         'bi.z1': 'Móstoles', 'bi.t1': '33 clientes',
         'bi.z2': 'Alcorcón', 'bi.t2': '25 clientes',
-        'bi.t3': '14 clientes'
+        'bi.t3': '14 clientes',
+        'bi.q1': '37%', 'bi.q2': '31%', 'bi.q3': '14%',
+        'bi.a1': 'Google · electricista urgente', 'bi.v1': '29 visitas',
+        'bi.a2': 'Instagram · cuadros eléctricos', 'bi.v2': '10 visitas',
+        'bi.a3': 'Facebook · instalaciones', 'bi.v3': '6 visitas'
       }
     },
     tejados: {
@@ -222,7 +238,11 @@
         'bi.m3': 'Canalones', 'bi.p3': '15%',
         'bi.z1': 'Las Rozas', 'bi.t1': '24 clientes',
         'bi.z2': 'Majadahonda', 'bi.t2': '19 clientes',
-        'bi.t3': '12 clientes'
+        'bi.t3': '12 clientes',
+        'bi.q1': '45%', 'bi.q2': '25%', 'bi.q3': '13%',
+        'bi.a1': 'Google · goteras', 'bi.v1': '22 visitas',
+        'bi.a2': 'Instagram · impermeabilización', 'bi.v2': '8 visitas',
+        'bi.a3': 'Facebook · canalones', 'bi.v3': '5 visitas'
       }
     },
     jardineria: {
@@ -258,7 +278,11 @@
         'bi.m3': 'Césped', 'bi.p3': '18%',
         'bi.z1': 'Pozuelo', 'bi.t1': '29 clientes',
         'bi.z2': 'Boadilla', 'bi.t2': '21 clientes',
-        'bi.t3': '11 clientes'
+        'bi.t3': '11 clientes',
+        'bi.q1': '41%', 'bi.q2': '28%', 'bi.r3': 'Agenda llena', 'bi.q3': '16%',
+        'bi.a1': 'Google · poda de setos', 'bi.v1': '23 trabajos',
+        'bi.a2': 'Instagram · césped', 'bi.v2': '10 trabajos',
+        'bi.a3': 'Facebook · mantenimiento', 'bi.v3': '6 trabajos'
       }
     },
     cerrajeria: {
@@ -294,7 +318,11 @@
         'bi.m3': 'Puertas blindadas', 'bi.p3': '9%',
         'bi.z1': 'Alcorcón', 'bi.t1': '58 clientes',
         'bi.z2': 'Móstoles', 'bi.t2': '41 clientes',
-        'bi.t3': '23 clientes'
+        'bi.t3': '23 clientes',
+        'bi.q1': '47%', 'bi.q2': '22%', 'bi.q3': '16%',
+        'bi.a1': 'Google · cerrajero urgente', 'bi.v1': '54 salidas',
+        'bi.a2': 'Instagram · puertas blindadas', 'bi.v2': '8 salidas',
+        'bi.a3': 'Facebook · cambio de cerradura', 'bi.v3': '6 salidas'
       }
     },
     talleres: {
@@ -332,7 +360,11 @@
         'bi.m3': 'Neumáticos', 'bi.p3': '18%',
         'bi.z1': 'Getafe', 'bi.t1': '46 clientes',
         'bi.z2': 'Parla', 'bi.t2': '29 clientes',
-        'bi.t3': '12 clientes'
+        'bi.t3': '12 clientes',
+        'bi.q1': '34%', 'bi.q2': '29%', 'bi.r3': 'Agenda llena', 'bi.q3': '21%',
+        'bi.a1': 'Google · revisiones', 'bi.v1': '26 citas',
+        'bi.a2': 'Instagram · neumáticos', 'bi.v2': '11 citas',
+        'bi.a3': 'Facebook · frenos', 'bi.v3': '7 citas'
       }
     },
     fincas: {
@@ -375,7 +407,15 @@
         'bi.h2': 'Qué comunidades escriben más',
         'bi.z1': 'C/ Mayor, 12', 'bi.t1': '41 vecinos',
         'bi.z2': 'Av. del Parque, 8', 'bi.t2': '28 vecinos',
-        'bi.z3': 'Pl. de la Fuente, 3', 'bi.t3': '19 vecinos'
+        'bi.z3': 'Pl. de la Fuente, 3', 'bi.t3': '19 vecinos',
+        'bi.h3': 'Por qué se retrasan',
+        'bi.r1': 'Espera al proveedor', 'bi.q1': '44%',
+        'bi.r2': 'Falta aprobar el gasto', 'bi.q2': '31%',
+        'bi.r3': 'Sin acceso a la vivienda', 'bi.q3': '14%',
+        'bi.h4': 'Qué anuncio te trae comunidades',
+        'bi.a1': 'Google · administrador', 'bi.v1': '9 consultas',
+        'bi.a2': 'Facebook · comunidades', 'bi.v2': '4 consultas',
+        'bi.a3': 'Instagram · alquileres', 'bi.v3': '3 consultas'
       }
     },
     abogados: {
@@ -412,7 +452,11 @@
         'bi.m3': 'Divorcios', 'bi.p3': '21%',
         'bi.z1': 'Chamberí', 'bi.t1': '27 clientes',
         'bi.z2': 'Tetuán', 'bi.t2': '18 clientes',
-        'bi.t3': '9 clientes'
+        'bi.t3': '9 clientes',
+        'bi.q1': '37%', 'bi.q2': '28%', 'bi.r3': 'Otra especialidad', 'bi.q3': '20%',
+        'bi.a1': 'Google · despidos', 'bi.v1': '22 consultas',
+        'bi.a2': 'Instagram · divorcios', 'bi.v2': '9 consultas',
+        'bi.a3': 'Facebook · herencias', 'bi.v3': '7 consultas'
       }
     },
     inmobiliarias: {
@@ -452,7 +496,14 @@
         'bi.h2': 'Qué zonas buscan',
         'bi.z1': 'Chamberí', 'bi.t1': '52 clientes',
         'bi.z2': 'Retiro', 'bi.t2': '38 clientes',
-        'bi.z3': 'Otras zonas', 'bi.t3': '36 clientes'
+        'bi.z3': 'Otras zonas', 'bi.t3': '36 clientes',
+        'bi.r1': 'Sin financiación', 'bi.q1': '34%',
+        'bi.r2': 'Fuera de presupuesto', 'bi.q2': '27%',
+        'bi.r3': 'Deja de contestar', 'bi.q3': '21%',
+        'bi.h4': 'Qué anuncio te trae compradores',
+        'bi.a1': 'Google · pisos en Chamberí', 'bi.v1': '21 visitas',
+        'bi.a2': 'Instagram · áticos', 'bi.v2': '9 visitas',
+        'bi.a3': 'Facebook · pisos en Retiro', 'bi.v3': '6 visitas'
       }
     }
   };
@@ -509,7 +560,14 @@
             "bi.t1": "44 customers",
             "bi.z2": "Leganés",
             "bi.t2": "31 customers",
-            "bi.t3": "17 customers"
+            "bi.t3": "17 customers",
+            "bi.r3": "Fully booked",
+            "bi.a1": "Google · boiler repairs",
+            "bi.v1": "34 visits",
+            "bi.a2": "Instagram · air conditioning",
+            "bi.v2": "13 visits",
+            "bi.a3": "Facebook · new boilers",
+            "bi.v3": "9 visits"
           },
           "alt": "Photo of the boiler with the F28 code on the display",
           "chat": [
@@ -557,7 +615,14 @@
             "bi.t1": "36 customers",
             "bi.z2": "Tres Cantos",
             "bi.t2": "22 customers",
-            "bi.t3": "15 customers"
+            "bi.t3": "15 customers",
+            "bi.r3": "Fully booked",
+            "bi.a1": "Google · deep clean",
+            "bi.v1": "27 cleans",
+            "bi.a2": "Instagram · after-builders clean",
+            "bi.v2": "11 cleans",
+            "bi.a3": "Facebook · windows",
+            "bi.v3": "6 cleans"
           },
           "chat": [
             null,
@@ -604,7 +669,13 @@
             "bi.t1": "38 customers",
             "bi.z2": "Getafe",
             "bi.t2": "27 customers",
-            "bi.t3": "21 customers"
+            "bi.t3": "21 customers",
+            "bi.a1": "Google · leaks",
+            "bi.v1": "33 visits",
+            "bi.a2": "Instagram · blockages",
+            "bi.v2": "12 visits",
+            "bi.a3": "Facebook · water heaters",
+            "bi.v3": "7 visits"
           },
           "alt": "Photo of a water leak under the sink",
           "chat": [
@@ -649,7 +720,13 @@
             "bi.t1": "33 customers",
             "bi.z2": "Alcorcón",
             "bi.t2": "25 customers",
-            "bi.t3": "14 customers"
+            "bi.t3": "14 customers",
+            "bi.a1": "Google · emergency electrician",
+            "bi.v1": "29 visits",
+            "bi.a2": "Instagram · fuse boxes",
+            "bi.v2": "10 visits",
+            "bi.a3": "Facebook · installations",
+            "bi.v3": "6 visits"
           },
           "alt": "Photo of a home's fuse box",
           "chat": [
@@ -694,7 +771,13 @@
             "bi.t1": "24 customers",
             "bi.z2": "Majadahonda",
             "bi.t2": "19 customers",
-            "bi.t3": "12 customers"
+            "bi.t3": "12 customers",
+            "bi.a1": "Google · roof leaks",
+            "bi.v1": "22 visits",
+            "bi.a2": "Instagram · waterproofing",
+            "bi.v2": "8 visits",
+            "bi.a3": "Facebook · gutters",
+            "bi.v3": "5 visits"
           },
           "alt": "Photo of a damp patch on the living room ceiling",
           "chat": [
@@ -740,7 +823,14 @@
             "bi.t1": "29 customers",
             "bi.z2": "Boadilla",
             "bi.t2": "21 customers",
-            "bi.t3": "11 customers"
+            "bi.t3": "11 customers",
+            "bi.r3": "Fully booked",
+            "bi.a1": "Google · hedge trimming",
+            "bi.v1": "23 jobs",
+            "bi.a2": "Instagram · lawns",
+            "bi.v2": "10 jobs",
+            "bi.a3": "Facebook · maintenance",
+            "bi.v3": "6 jobs"
           },
           "alt": "Photo of a tall, overgrown hedge in a garden",
           "chat": [
@@ -789,7 +879,13 @@
             "bi.t1": "58 customers",
             "bi.z2": "Móstoles",
             "bi.t2": "41 customers",
-            "bi.t3": "23 customers"
+            "bi.t3": "23 customers",
+            "bi.a1": "Google · lockouts",
+            "bi.v1": "54 call-outs",
+            "bi.a2": "Instagram · security doors",
+            "bi.v2": "8 call-outs",
+            "bi.a3": "Facebook · lock changes",
+            "bi.v3": "6 call-outs"
           },
           "chat": [
             "I've left my keys inside and I can't get in",
@@ -839,7 +935,14 @@
             "bi.t1": "46 customers",
             "bi.z2": "Parla",
             "bi.t2": "29 customers",
-            "bi.t3": "12 customers"
+            "bi.t3": "12 customers",
+            "bi.r3": "Fully booked",
+            "bi.a1": "Google · servicing",
+            "bi.v1": "26 appointments",
+            "bi.a2": "Instagram · tyres",
+            "bi.v2": "11 appointments",
+            "bi.a3": "Facebook · brakes",
+            "bi.v3": "7 appointments"
           },
           "alt": "Photo of the car's dashboard with the engine warning light on",
           "chat": [
@@ -900,7 +1003,18 @@
             "bi.z2": "Av. del Parque, 8",
             "bi.t2": "28 residents",
             "bi.z3": "Pl. de la Fuente, 3",
-            "bi.t3": "19 residents"
+            "bi.t3": "19 residents",
+            "bi.h3": "Why they get held up",
+            "bi.r1": "Waiting on the supplier",
+            "bi.r2": "Spending not approved",
+            "bi.r3": "No access to the flat",
+            "bi.h4": "Which ad brings you new buildings",
+            "bi.a1": "Google · property manager",
+            "bi.v1": "9 enquiries",
+            "bi.a2": "Facebook · buildings",
+            "bi.v2": "4 enquiries",
+            "bi.a3": "Instagram · rentals",
+            "bi.v3": "3 enquiries"
           },
           "chat": [
             null,
@@ -951,7 +1065,14 @@
             "bi.t1": "27 clients",
             "bi.z2": "Tetuán",
             "bi.t2": "18 clients",
-            "bi.t3": "9 clients"
+            "bi.t3": "9 clients",
+            "bi.r3": "Other area of law",
+            "bi.a1": "Google · dismissals",
+            "bi.v1": "22 consultations",
+            "bi.a2": "Instagram · divorces",
+            "bi.v2": "9 consultations",
+            "bi.a3": "Facebook · inheritance",
+            "bi.v3": "7 consultations"
           },
           "chat": [
             "Hi, I was fired today and I don't know what to do",
@@ -1005,7 +1126,17 @@
             "bi.z2": "Retiro",
             "bi.t2": "38 clients",
             "bi.z3": "Other areas",
-            "bi.t3": "36 clients"
+            "bi.t3": "36 clients",
+            "bi.r1": "No financing",
+            "bi.r2": "Over budget",
+            "bi.r3": "Stops replying",
+            "bi.h4": "Which ad brings you buyers",
+            "bi.a1": "Google · flats in Chamberí",
+            "bi.v1": "21 viewings",
+            "bi.a2": "Instagram · penthouses",
+            "bi.v2": "9 viewings",
+            "bi.a3": "Facebook · flats in Retiro",
+            "bi.v3": "6 viewings"
           },
           "chat": [
             "Hi, is the flat on Calle Alcalá still available?",
@@ -1063,7 +1194,14 @@
             "bi.t1": "44 clients",
             "bi.z2": "Leganés",
             "bi.t2": "31 clients",
-            "bi.t3": "17 clients"
+            "bi.t3": "17 clients",
+            "bi.r3": "Agenda plena",
+            "bi.a1": "Google · avaries de caldera",
+            "bi.v1": "34 visites",
+            "bi.a2": "Instagram · aire condicionat",
+            "bi.v2": "13 visites",
+            "bi.a3": "Facebook · calderes noves",
+            "bi.v3": "9 visites"
           },
           "alt": "Foto de la caldera amb el codi F28 a la pantalla",
           "chat": [
@@ -1110,7 +1248,14 @@
             "bi.t1": "36 clients",
             "bi.z2": "Tres Cantos",
             "bi.t2": "22 clients",
-            "bi.t3": "15 clients"
+            "bi.t3": "15 clients",
+            "bi.r3": "Agenda plena",
+            "bi.a1": "Google · neteja a fons",
+            "bi.v1": "27 neteges",
+            "bi.a2": "Instagram · final d'obra",
+            "bi.v2": "11 neteges",
+            "bi.a3": "Facebook · vidres",
+            "bi.v3": "6 neteges"
           },
           "chat": [
             null,
@@ -1156,7 +1301,13 @@
             "bi.t1": "38 clients",
             "bi.z2": "Getafe",
             "bi.t2": "27 clients",
-            "bi.t3": "21 clients"
+            "bi.t3": "21 clients",
+            "bi.a1": "Google · fuites d'aigua",
+            "bi.v1": "33 visites",
+            "bi.a2": "Instagram · embussos",
+            "bi.v2": "12 visites",
+            "bi.a3": "Facebook · termos",
+            "bi.v3": "7 visites"
           },
           "alt": "Foto d'una fuita d'aigua sota l'aigüera",
           "chat": [
@@ -1200,7 +1351,13 @@
             "bi.t1": "33 clients",
             "bi.z2": "Alcorcón",
             "bi.t2": "25 clients",
-            "bi.t3": "14 clients"
+            "bi.t3": "14 clients",
+            "bi.a1": "Google · electricista urgent",
+            "bi.v1": "29 visites",
+            "bi.a2": "Instagram · quadres elèctrics",
+            "bi.v2": "10 visites",
+            "bi.a3": "Facebook · instal·lacions",
+            "bi.v3": "6 visites"
           },
           "alt": "Foto del quadre elèctric d'una casa",
           "chat": [
@@ -1244,7 +1401,13 @@
             "bi.t1": "24 clients",
             "bi.z2": "Majadahonda",
             "bi.t2": "19 clients",
-            "bi.t3": "12 clients"
+            "bi.t3": "12 clients",
+            "bi.a1": "Google · goteres",
+            "bi.v1": "22 visites",
+            "bi.a2": "Instagram · impermeabilització",
+            "bi.v2": "8 visites",
+            "bi.a3": "Facebook · canalons",
+            "bi.v3": "5 visites"
           },
           "alt": "Foto d'una taca d'humitat al sostre del menjador",
           "chat": [
@@ -1289,7 +1452,14 @@
             "bi.t1": "29 clients",
             "bi.z2": "Boadilla",
             "bi.t2": "21 clients",
-            "bi.t3": "11 clients"
+            "bi.t3": "11 clients",
+            "bi.r3": "Agenda plena",
+            "bi.a1": "Google · poda de tanques",
+            "bi.v1": "23 feines",
+            "bi.a2": "Instagram · gespa",
+            "bi.v2": "10 feines",
+            "bi.a3": "Facebook · manteniment",
+            "bi.v3": "6 feines"
           },
           "alt": "Foto d'una tanca vegetal alta i sense podar en un jardí",
           "chat": [
@@ -1337,7 +1507,13 @@
             "bi.t1": "58 clients",
             "bi.z2": "Móstoles",
             "bi.t2": "41 clients",
-            "bi.t3": "23 clients"
+            "bi.t3": "23 clients",
+            "bi.a1": "Google · serraller urgent",
+            "bi.v1": "54 sortides",
+            "bi.a2": "Instagram · portes blindades",
+            "bi.v2": "8 sortides",
+            "bi.a3": "Facebook · canvi de pany",
+            "bi.v3": "6 sortides"
           },
           "chat": [
             "M'he deixat les claus a dins i no puc entrar",
@@ -1386,7 +1562,14 @@
             "bi.t1": "46 clients",
             "bi.z2": "Parla",
             "bi.t2": "29 clients",
-            "bi.t3": "12 clients"
+            "bi.t3": "12 clients",
+            "bi.r3": "Agenda plena",
+            "bi.a1": "Google · revisions",
+            "bi.v1": "26 cites",
+            "bi.a2": "Instagram · pneumàtics",
+            "bi.v2": "11 cites",
+            "bi.a3": "Facebook · frens",
+            "bi.v3": "7 cites"
           },
           "alt": "Foto del quadre del cotxe amb el testimoni d'avaria del motor encès",
           "chat": [
@@ -1447,7 +1630,18 @@
             "bi.z2": "Av. del Parque, 8",
             "bi.t2": "28 veïns",
             "bi.z3": "Pl. de la Fuente, 3",
-            "bi.t3": "19 veïns"
+            "bi.t3": "19 veïns",
+            "bi.h3": "Per què s'endarrereixen",
+            "bi.r1": "Espera el proveïdor",
+            "bi.r2": "Falta aprovar la despesa",
+            "bi.r3": "Sense accés al pis",
+            "bi.h4": "Quin anunci et porta comunitats",
+            "bi.a1": "Google · administrador",
+            "bi.v1": "9 consultes",
+            "bi.a2": "Facebook · comunitats",
+            "bi.v2": "4 consultes",
+            "bi.a3": "Instagram · lloguers",
+            "bi.v3": "3 consultes"
           },
           "chat": [
             null,
@@ -1497,7 +1691,14 @@
             "bi.t1": "27 clients",
             "bi.z2": "Tetuán",
             "bi.t2": "18 clients",
-            "bi.t3": "9 clients"
+            "bi.t3": "9 clients",
+            "bi.r3": "Una altra especialitat",
+            "bi.a1": "Google · acomiadaments",
+            "bi.v1": "22 consultes",
+            "bi.a2": "Instagram · divorcis",
+            "bi.v2": "9 consultes",
+            "bi.a3": "Facebook · herències",
+            "bi.v3": "7 consultes"
           },
           "chat": [
             "Bones, m'han acomiadat avui i no sé què fer",
@@ -1550,7 +1751,17 @@
             "bi.z2": "Retiro",
             "bi.t2": "38 clients",
             "bi.z3": "Altres zones",
-            "bi.t3": "36 clients"
+            "bi.t3": "36 clients",
+            "bi.r1": "Sense finançament",
+            "bi.r2": "Fora de pressupost",
+            "bi.r3": "Deixa de contestar",
+            "bi.h4": "Quin anunci et porta compradors",
+            "bi.a1": "Google · pisos a Chamberí",
+            "bi.v1": "21 visites",
+            "bi.a2": "Instagram · àtics",
+            "bi.v2": "9 visites",
+            "bi.a3": "Facebook · pisos a Retiro",
+            "bi.v3": "6 visites"
           },
           "chat": [
             "Hola, encara està disponible el pis del carrer Alcalá?",

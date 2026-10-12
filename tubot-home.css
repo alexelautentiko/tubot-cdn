@@ -84,3 +84,12 @@
   .hm-kpis { grid-template-columns: 1fr; }
   .hm-kpi { padding: 22px 24px; }
 }
+
+/* ============================================================
+   CIFRAS DEL NEGOCIO: "Qué anuncio te trae trabajo" (anuncio y resultado en la misma línea; cuando la
+   tarjeta es estrecha, como en el móvil o en tableta, el resultado baja debajo del anuncio)
+   ============================================================ */
+.hm-ads .bento-vis { container-type: inline-size; }
+@container (max-width: 261px) {
+  .hm-ads .bv-row { flex-direction: column; align-items: flex-start; gap: 3px; }
+}
