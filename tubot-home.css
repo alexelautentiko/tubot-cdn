@@ -80,9 +80,27 @@
 .hm-kpi { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 26px 30px; }
 .hm-kpis + .cl-cases { margin-top: 0; }
 .hm-who { max-width: 980px; margin: 14px auto 0; text-align: center; }
+/* "Caso de éxito ↗" debajo del logo de los clientes con caso en el blog. Todos los logos ocupan el
+   mismo alto (el del escudo de JGM) y el texto cuelga en absoluto del li, así los logos siguen centrados
+   en la fila y los tres textos quedan a la misma altura; la fila deja sitio debajo y entre filas.
+   Los ocho caben en una fila desde 1180 px con 26 px entre logos */
+.cl-proof .rc-logo-row { gap: 46px 26px; padding-bottom: 24px; }
+.cl-proof .rc-logo-row li { position: relative; display: flex; align-items: center; min-height: 54px; }
+.hm-logo-case { display: block; text-decoration: none; }
+.hm-logo-case span {
+  position: absolute; left: 50%; top: calc(100% + 10px); transform: translateX(-50%);
+  white-space: nowrap; font-size: 12px; font-weight: 700; line-height: 1; color: var(--muted);
+  transition: color .2s var(--ease);
+}
+.hm-logo-case span::after { content: " ↗"; }
+.hm-logo-case:hover span { color: var(--text); }
 @media (max-width: 760px) {
   .hm-kpis { grid-template-columns: 1fr; }
   .hm-kpi { padding: 22px 24px; }
+}
+@media (max-width: 600px) {
+  .cl-proof .rc-logo-row { gap: 36px 26px; }
+  .cl-proof .rc-logo-row li { min-height: 44px; }
 }
 
 /* ============================================================
